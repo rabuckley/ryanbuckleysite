@@ -1,0 +1,7 @@
+.border-top {
+    border-top: get-var(hairline-width) solid get-var("border-color");
+}
+
+.border-bottom {
+    border-bottom: get-var(hairline-width) solid get-var("border-color");
+}

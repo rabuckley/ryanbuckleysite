@@ -1,0 +1,22 @@
+@each $size in $type-scale {
+    .text-#{$size} {
+        font-size: map-get($text-sizes, $size);
+        line-height: map-get($line-heights, $size);
+    }
+}
+
+@each $font, $value in $font-families {
+    .font-#{$font} {
+        font-family: get-var("font-" + $font);
+    }
+}
+
+.prose {
+    font-family: get-var(font-serif);
+    font-size: get-var(prose-size);
+    max-width: 45rem;
+    p {
+        margin-bottom: get-var(s-5);
+        font-size: get-var(prose-size);
+    }
+}

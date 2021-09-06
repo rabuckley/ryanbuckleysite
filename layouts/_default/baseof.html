@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+
+<head>
+    {{ partial "head/metadata.html" . }}
+    {{ block "meta" . }}{{ end }}
+    <title>{{ .Site.Title }}</title>
+    {{ partial "head/stylesheets.html" . }}
+</head>
+
+<body class="container">
+    <div>
+        {{ partial "navbar.html" . }}
+        <main>
+            {{ block "main" . }}
+        </main>
+        {{ end }}
+    </div>
+    {{ partial "scripts/scripts.html" . }}
+</body>
+</html>

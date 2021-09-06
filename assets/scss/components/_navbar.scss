@@ -1,0 +1,44 @@
+@include media-breakpoint-down(md) {
+  .navbar-nav .nav-item {
+    padding: get-var(s-2) 0;
+  }
+}
+
+@include media-breakpoint-up(md) {
+    .navbar-nav {
+        margin-left: auto;
+    }
+}
+
+.navbar-themed {
+    .navbar-brand {
+      color: get-var(body);
+  
+      &:hover,
+      &:focus {
+        color: get-var(contrast);
+      }
+    }
+  
+    .navbar-nav {
+      .nav-link {
+        color: get-var(body);
+  
+        &:hover,
+        &:focus {
+          color: get-var(contrast);
+        }
+      }
+  
+      .show > .nav-link,
+      .nav-link.active {
+        color: get-var(contrast);
+      }
+    }
+
+    .navbar-toggler {
+      color: get-var(body);
+      border: none !important;
+    }
+}
+
