@@ -1,0 +1,8 @@
+$custom-spacers: (
+    6: $spacer * 5,
+    7: $spacer * 8,
+    8: $spacer * 10,
+    hero: 8vmin
+);
+
+$spacers: map-merge($spacers, $custom-spacers);

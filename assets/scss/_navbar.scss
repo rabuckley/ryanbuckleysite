@@ -1,0 +1,48 @@
+.navbar .nav-link {
+
+    --color: var(--bs-primary);
+
+    display: inline-block;
+    text-decoration: none !important;
+    position: relative;
+
+    color: var(--color) !important;
+
+    &.dark {
+        --color: rgb(var(--bs-light-rgb));
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .navbar .nav-link {
+        margin: 0 0.5em;
+    }
+};
+
+@media (hover: hover) {
+    .navbar .nav-link {
+
+        &:hover,
+        &:active {
+            &::before {
+                transform: scale(1);
+            }
+        }
+    
+        &::before {
+            content: "";
+            width: 100%;
+            position: absolute;
+            bottom: 0.125em;
+            left: 0;
+            height: 0.0625em;
+            transform: scale(0);
+            transition: .25s transform ease;
+            background: var(--color);
+        }
+    }
+}
+
+.navbar-brand {
+    font-family: 'Gochi Hand', cursive !important;
+}

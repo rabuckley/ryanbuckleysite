@@ -1,0 +1,56 @@
+.single-grid {
+	display: grid;
+	grid-template-areas: "content toc";
+	grid-template-columns: 2fr 1fr;
+	gap: 1.5rem;
+}
+
+.toc-title {
+	--color-rgb: var(--bs-secondary-rgb);
+	display: block;
+	color: rgba(var(--color-rgb), 1);
+	border-bottom: 0.125em solid rgba(var(--color-rgb), 0.2);
+	padding-bottom: 0.2em;
+	margin-bottom: 0.2em;
+}
+
+.toc-area {
+	grid-area: toc;
+}
+
+.toc {
+	--offset: 1.5rem;
+	position: sticky;
+	top: var(--offset);
+	height: 100vh;
+}
+
+.toc a:hover,
+.toc .active {
+	color: rgba(var(--bs-dark-rgb), 1) !important;
+	border-left-color: rgba(var(--bs-primary-rgb), 1);
+}
+.toc ol,
+.toc ul {
+	margin: 0;
+	list-style: none;
+	padding-left: 1rem !important;
+
+	li {
+		padding-block: 0.25em;
+	}
+}
+
+.toc a {
+	font-size: var(--bs-font-size-sm);
+	color: var(--bs-gray) !important;
+	text-decoration: none;
+
+	border-radius: 0;
+	border-left: 0.15em solid transparent;
+
+	padding-left: 0.75em;
+	padding-right: 0.25em;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+}

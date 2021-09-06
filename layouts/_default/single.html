@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="single-grid">
+
+    <div class="toc">
+        {{ partial "toc/toc.html" . }}
+    </div>
+
+    <div id="content" style="grid-area: content;">
+        {{ .Content }}
+    </div>
+    
+</div>
+{{ end }}

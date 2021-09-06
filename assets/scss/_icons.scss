@@ -1,0 +1,11 @@
+.bi {
+    --size: 1rem;
+    height: var(--size);
+    width: var(--size);
+}
+
+@each $size, $value in $icon-sizes {
+    .bi-#{$size} {
+        --size: #{$value};
+    }
+}

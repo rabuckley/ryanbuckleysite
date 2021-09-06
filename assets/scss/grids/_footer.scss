@@ -1,0 +1,63 @@
+.footer-content-grid {
+    display: grid;
+
+    --grid-gap: 2rem 0;
+    --grid-columns: 1fr;
+    --grid-template-areas:
+        "branding"
+        "links"
+        "social"
+        "legal";
+
+        
+    gap: var(--grid-gap);
+    grid-template-columns: var(--grid-columns); 
+    grid-template-areas: var(--grid-template-areas);
+
+}
+
+.footer-branding {
+    grid-area: branding;
+}
+
+.footer-site-links {
+    grid-area: links;
+}
+
+.footer-social-links {
+    grid-area: social;
+}
+
+.footer-legal {
+    grid-area: legal;
+}
+
+@include media-breakpoint-up(md) {
+    .footer-content-grid {
+        --grid-columns: 1fr 2fr;
+        --grid-template-areas:
+            "branding links"
+            "social legal"
+    }
+}
+
+.footer-branding-grid {
+    display: grid;
+    grid-template-areas: "icon info";
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    
+    p {
+        margin-bottom: 0.25rem;
+        margin-top: 0;
+    }
+
+    .footer-icon {
+        grid-area: icon;
+        text-align: end;
+    }
+
+    .footer-info {
+        grid-area: info;
+    }
+}

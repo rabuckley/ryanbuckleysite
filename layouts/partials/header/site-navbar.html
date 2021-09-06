@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-md px-2 px-lg-5 {{ if eq .Params.theme "dark" }}bg-primary navbar-dark{{ else }}navbar-light{{ end }}" aria-label="Site navigation bar">
+  <div class="container-xxl">
+  <a class="navbar-brand" href="/">RB</a>
+  <button class="d-md-none hamburger hamburger--spin collapsed" {{ if eq .Params.theme "dark" }}style="--color: white !important;"{{ end }} type="button" data-bs-toggle="collapse"
+    data-bs-target="#site-navbar-items" aria-controls="site-navbar-items" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="site-navbar-items">
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link{{ if eq .Params.theme "dark" }} dark{{ end }}" aria-current="page" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link{{ if eq .Params.theme "dark" }} dark{{ end }}" aria-current="page" href="/">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link{{ if eq .Params.theme "dark" }} dark{{ end }}" aria-current="page" href="/">Portfolio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link{{ if eq .Params.theme "dark" }} dark{{ end }}" aria-current="page" href="/">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link{{ if eq .Params.theme "dark" }} dark{{ end }}" aria-current="page" href="/">Contact</a>
+      </li>
+    </ul>
+  </div></div>
+</nav>
