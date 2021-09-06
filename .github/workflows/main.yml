@@ -2,7 +2,7 @@ name: GitHub Pages
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -19,19 +19,23 @@ jobs:
       uses: peaceiris/actions-hugo@v2
       with:
           hugo-version: 'latest'
+          extended: true
 
     - name: Clean public directory
       run: rm -rf public
 
+    - name: Install NPM Dependencies
+      run: npm i -y
+
     - name: Build
-      run: hugo
+      run: hugo --minify
 
 
-    - name: Create cname file
-      run: echo 'ryanbuckley.uk' > public/CNAME
+    #- name: Create cname file
+    #  run: echo 'ryanbuckley.uk' > public/CNAME
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+    #- name: Deploy
+    #  uses: peaceiris/actions-gh-pages@v3
+    #  with:
+    #      github_token: ${{ secrets.GITHUB_TOKEN }}
+    #      publish_dir: ./public
