@@ -24,10 +24,3 @@
             "showcase1 showcase2 showcase3";
         }
 }
-
-.showcase-1, .showcase-2, .showcase-3 {
-    &:hover svg {
-        transform: rotate(0.1turn);
-        transition: 0.75s ease-in-out;
-    }
-}

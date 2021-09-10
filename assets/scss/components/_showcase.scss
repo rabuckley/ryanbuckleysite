@@ -8,24 +8,14 @@
 
     font-weight: 600;
     margin-bottom: 1.75rem;
-    
-    
-
-    &:hover::after {
-        transform-origin: left;
-        transition: ease 0.5s;
-        transform: scaleX(3.03);
-        
-    }
 
     &::after {
-        transition: ease-in 0.5s;
         content: '';
         display: block;
         background-color: black;
         margin-top: 0.5rem;
         height: 0.125rem;
-        width: 33%;
+        width: auto;
     }
 
 }
