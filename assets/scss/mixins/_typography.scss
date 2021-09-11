@@ -1,5 +1,0 @@
-@mixin font-scale($base-font-sizes, $multiplier: 1) {
-    @each $font, $value in $base-font-sizes {
-        --fs-#{$font}: #{$value * $multiplier};
-    }
-}

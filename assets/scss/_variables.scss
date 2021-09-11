@@ -19,31 +19,6 @@ $custom-spacers: (
     hero: var(--hero-padding)
 );
 
-$base-font-sizes: (
-  300: 0.875rem,
-  400: 1rem,
-  500: 1.125rem,
-  600: 1.25rem,
-  700: 1.5rem
-);
-
-$header-base-font-sizes: (
-  h1: 2.75rem,
-  h2: 2.5rem,
-  h3: 2.25rem,
-  h4: 2rem,
-  h5: 1.5rem,
-  h6: 1.25rem
-);
-
-$display-base-font-sizes: (
-  d1: 2.75rem,
-  d2: 2.5rem,
-  d3: 2.25rem,
-  d4: 2rem,
-  d5: 1.5rem,
-  d6: 1.25rem
-);
 
 // Hamburger
 
@@ -59,7 +34,6 @@ $hamburger-active-layer-color  : $hamburger-layer-color;
 $hamburger-active-hover-opacity: $hamburger-hover-opacity;
 
 // Icons
-
 $icon-sizes: (
     sm: 0.75em,
     md: 2em,
@@ -70,31 +44,6 @@ $icon-sizes: (
 $font-size-base:              1rem;
 $font-size-sm:                $font-size-base * .875;
 $font-size-lg:                $font-size-base * 1.25;
-
-$h1-font-size:                var(--fs-h1);
-$h2-font-size:                var(--fs-h2);
-$h3-font-size:                var(--fs-h3);
-$h4-font-size:                var(--fs-h4);
-$h5-font-size:                var(--fs-h5);
-$h6-font-size:                var(--fs-h6);
-
-$font-sizes: (
-  1: $h1-font-size,
-  2: $h2-font-size,
-  3: $h3-font-size,
-  4: $h4-font-size,
-  5: $h5-font-size,
-  6: $h6-font-size
-);
-
-$display-font-sizes: (
-  1: var(--fs-d1),
-  2: var(--fs-d2),
-  3: var(--fs-d3),
-  4: var(--fs-d4),
-  5: var(--fs-d5),
-  6: var(--fs-d6)
-);
 
 $display-font-weight: 600;
 
