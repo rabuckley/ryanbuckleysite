@@ -11,13 +11,15 @@
 
 @import "../scss/maps";
 
+// Mixins
+
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/rfs/sass";
-@import "../scss/mixins/typography";
 
 @import "../../node_modules/bootstrap/scss/utilities";
 
 // Layout & components
+
 
 @import "../../node_modules/bootstrap/scss/root";
 @import "../scss/root";
@@ -61,7 +63,7 @@
 @import "../scss/components/hamburger";
 
 //Typography
-@import "../scss/typography";
+// @import "../scss/typography";
 
 //Grids
 @import "../scss/grids/footer";
