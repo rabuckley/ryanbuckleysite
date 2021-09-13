@@ -2,6 +2,16 @@
     color: var(--bs-primary);
 }
 
+.btn-share {
+    border: none !important;
+    background: none !important;
+    color: var(--bs-gray);
+    
+    &:hover {
+        color: black !important;
+    }
+}
+
 .btn-learn-more {
     &:hover {
         .arrow {
