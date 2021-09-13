@@ -1,0 +1,111 @@
+.article-grid {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "title"
+        "desc"
+        "info"
+        "share"
+        "article"
+}
+
+@media screen and (min-width: 992px) {
+    .article-grid {
+    grid-template-columns: 3fr 4fr 4fr 3fr;
+    grid-template-areas:
+        ". title title ."
+        ". desc desc ."
+        ". info share ."
+        ". article article .";
+    }
+
+    .article-share {
+        justify-content: end;
+    }
+}
+
+.article-title {
+    grid-area: title;
+    font-weight: 600;
+    @include font-size(3rem);
+    @include margin-bottom(1.5rem);
+}
+
+.article-desc {
+    grid-area: desc;
+    color: var(--bs-gray);
+}
+
+.article-info {
+    grid-area: info;
+    display: grid;
+    gap: 0 1rem;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+        "avatar author"
+        "avatar date";
+}
+
+.article-author {
+    grid-area: author;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.article-date {
+    grid-area: date;
+    color: rgba(var(--bs-dark-rgb), 0.75);
+}
+
+.article-share {
+    grid-area: share;
+    display: flex;
+    align-items: center;
+
+    span {
+        margin-right: 1rem;
+        font-size: 1.125rem;
+        font-weight: normal;
+        color: var(--bs-secondary);
+    };
+
+    button {
+        --size: 2.5rem;
+        border-radius: 50%;
+        font-size: .8125rem;
+        width: var(--size);
+        height: var(--size);
+
+        margin: 0 0.25rem;
+       svg {
+           vertical-align: -0.15rem;
+           color: var(--bs-secondary) !important;
+       }
+
+       &:hover,
+       &:focus {
+           svg {
+            color: white !important;
+           }
+       }
+    }
+}
+
+.article {
+    grid-area: article;
+    p {
+        line-height: 1.5;
+    }
+    
+}
+
+
+.avatar {
+    grid-area: avatar;
+    position: relative;
+    display: inline-block;
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 50%;
+}

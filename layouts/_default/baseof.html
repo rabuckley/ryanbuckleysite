@@ -24,13 +24,7 @@
     {{ partial "header/site-header.html" . }}
     
     <!-- Wraps content in container unless front-matter has container: false -->
-    {{ if eq .Params.container false}}
-      {{ block "main" . }} {{ end }}
-    {{ else }}
-      <div class="container py-3">
-        {{ block "main" . }} {{ end }}
-      </div>
-    {{ end }}
+    {{ block "main" . }} {{ end }}
 
     {{ block "scripts" . }} 
       {{ partial "scripts/scripts.html" . }}

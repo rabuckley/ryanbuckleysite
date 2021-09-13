@@ -6,7 +6,7 @@ draft: true
 theme: light
 container: true
 scrollspy: true
-layout: single
+layout: toc
 toc: true
 ---
 
