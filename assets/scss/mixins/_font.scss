@@ -1,0 +1,21 @@
+@mixin font-size-variables($font-sizes) {
+    @each $font, $size in $font-sizes {
+        --fs-#{$font}: #{$size};
+    }
+}
+
+@function pow($number, $exponent) {
+    $value: 1;
+
+    @if $exponent > 0 {
+      @for $i from 1 through $exponent {
+        $value: $value * $number;
+    }
+
+    } @else if $exponent < 0 {
+      @for $i from 1 through -$exponent {
+        $value: $value / $number;
+      }
+    }
+    @return $value;
+}

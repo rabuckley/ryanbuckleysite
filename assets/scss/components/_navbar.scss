@@ -1,23 +1,22 @@
 .navbar .nav-link {
+	--color: var(--bs-primary);
 
-    --color: var(--bs-primary);
+	display: inline-block;
+	text-decoration: none !important;
+	position: relative;
 
-    display: inline-block;
-    text-decoration: none !important;
-    position: relative;
+	color: var(--color) !important;
 
-    color: var(--color) !important;
-
-    &.dark {
-        --color: rgb(var(--bs-light-rgb));
-    }
+	&.dark {
+		--color: rgb(var(--bs-light-rgb));
+	}
 }
 
 @include media-breakpoint-up(md) {
-    .navbar .nav-link {
-        margin: 0 0.5em;
-    }
-};
+	.navbar .nav-link {
+		margin: 0 0.5em;
+	}
+}
 
 @media (hover: hover) {
     .navbar .nav-link {
@@ -28,7 +27,7 @@
                 transform: scale(1);
             }
         }
-    
+
         &::before {
             content: "";
             width: 100%;
@@ -44,5 +43,6 @@
 }
 
 .navbar-brand {
-    font-family: 'Gochi Hand', cursive !important;
+	font-size: calc(var(--fs-400) * 1.125);
+	font-weight: 600;
 }

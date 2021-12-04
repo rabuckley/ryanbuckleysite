@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en-gb">
+
+<head>
 
     <!-- Metadata -->
-      
+
     {{ partial "head/metadata.html" . }}
 
     {{ block "meta" . }} {{ end }}
-    
+
     <title>{{ block "title" . }}{{.Page.Title}} | {{ .Site.Title }}{{ end }}</title>
 
     <!-- Fonts -->
@@ -17,23 +18,25 @@
     <!-- Styles -->
 
     {{ partial "head/stylesheets.html" . }}
-  
+
 </head>
-  <body {{ if eq .Params.scrollspy true . }} data-bs-spy="scroll" data-bs-target="#table-of-contents" data-bs-offset="30" tabindex="0" {{ end }}>
+
+<body {{ if eq .Params.scrollspy true . }} data-bs-spy="scroll" data-bs-target="#table-of-contents" data-bs-offset="30"
+    tabindex="0" {{ end }}>
 
     {{ partial "header/site-header.html" . }}
-    
+
     <!-- Wraps content in container unless front-matter has container: false -->
     {{ block "main" . }} {{ end }}
 
-    {{ block "scripts" . }} 
-      {{ partial "scripts/scripts.html" . }}
+    {{ block "scripts" . }}
+    {{ partial "scripts/scripts.html" . }}
     {{ end }}
 
     {{ block "footer" . }}
-      {{ partial "footer/site-footer.html" . }}
+    {{ partial "footer/site-footer.html" . }}
     {{ end }}
-    
-  </body>
-</html>
 
+</body>
+
+</html>

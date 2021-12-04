@@ -12,20 +12,11 @@
 
 @media screen and (min-width: 992px) {
     .article-grid {
-    grid-template-columns: 3fr 4fr 4fr 3fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
-        ". title title ."
-        ". info share ."
-        ". desc desc ."
-        ". article article .";
-    }
-
-    .article-share {
-        justify-content: end;
-    }
-
-    .article {
-        --article-font-size: var(--fs-500);
+        ". title title title"
+        "info desc desc desc"
+        "info article article article";
     }
 }
 
@@ -35,21 +26,14 @@
 .article-desc {
     grid-area: desc;
 }
-.article-info {
-    grid-area: info;
-    display: grid;
-    gap: 0 1rem;
-    grid-template-columns: 1fr;
-    grid-template-areas: "author" "date";
-}
 .article-author {
     grid-area: author;
 }
 .article-date {
     grid-area: date;
 }
-.article-share {
-    grid-area: share;
+.article-info {
+    grid-area: info;
 }
 .article {
     --article-font-size: var(--fs-400);

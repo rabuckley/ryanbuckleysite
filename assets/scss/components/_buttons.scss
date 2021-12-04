@@ -1,7 +1,3 @@
-.btn-social {
-    color: var(--bs-primary);
-}
-
 .btn-share {
     border: none !important;
     background: none !important;
@@ -12,7 +8,8 @@
     }
 }
 
-.btn-learn-more {
+a,
+button {
     &:hover {
         .arrow {
             --arrow-body-opacity: 1;

@@ -2,16 +2,9 @@
     margin-bottom: 0;
     font-weight: 500;
 }
-.article-title {
-    font-weight: 600;
-    @include font-size(2.5rem);
-    margin-bottom: var(--article-font-size);
-}
 
 .article-desc {
     color: var(--bs-dark-gray);
-    font-size: var(--article-font-size);
-    line-height: 1.625;
 }
 
 .article-date {
@@ -25,8 +18,6 @@
 
     span {
         margin-right: 0.25rem;
-        font-size: var(--fs-400);
-        font-weight: normal;
         color: var(--bs-black);
     }
 }
@@ -34,9 +25,6 @@
 .article {
     p {
         color: var(--bs-dark-gray);
-        font-size: var(--article-font-size);
-        line-height: 1.625;
-        margin-bottom: var(--article-font-size);
     }
 
     li {

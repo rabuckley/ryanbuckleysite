@@ -1,4 +1,3 @@
-$spacers: map-merge($spacers, $custom-spacers);
 $theme-colors: map-merge($theme-colors, $custom-theme-colors);
 $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
 
