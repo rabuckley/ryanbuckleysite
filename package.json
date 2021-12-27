@@ -12,7 +12,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.0",
     "bootstrap": "^5.1.0",
-    "postcss": "^8.3.6",
+    "postcss": "^8.4.5",
     "postcss-cli": "^9.1.0",
     "rfs": "^9.0.6"
   },
