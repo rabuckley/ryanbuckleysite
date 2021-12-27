@@ -7,7 +7,7 @@ updates:
     schedule:
       interval: "daily"
     assignees:
-      - "RyanABuckley"
+      - "rabuckley"
     labels:
       - "dependencies"
       - "github-actions"
@@ -17,7 +17,7 @@ updates:
     schedule:
       interval: "daily"
     assignees:
-      - "RyanABuckley"
+      - "rabuckley"
     labels:
       - "dependencies"
       - "npm"
