@@ -2,8 +2,7 @@ $variable-prefix: "";
 
 // Custom property maps
 $root-vars: ();
-$html-vars: ();
-$html-vars-dark: ();
+$root-vars-dark: ();
 
 // Color
 $primary: #0284c7;
@@ -15,17 +14,17 @@ $body: #334155;
 $background: #fff;
 
 $colors: (
-    primary: $primary,
-    secondary: $secondary,
-    success: $success,
-    warning: $warning,
-    danger: $danger,
-    body: $body,
-    bg: $background
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  warning: $warning,
+  danger: $danger,
+  body: $body,
+  bg: $background
 );
 
 @each $color, $value in $colors {
-    @include root-var($color, $value, $html-vars);
+  @include root-var($color, $value);
 }
 
 $primary-dark: $primary;
@@ -37,62 +36,46 @@ $body-dark: #e2e8f0;
 $background-dark: #27272a;
 
 $colors-dark: (
-    primary: $primary-dark,
-    secondary: $secondary-dark,
-    success: $success-dark,
-    warning: $warning-dark,
-    danger: $danger-dark,
-    body: $body-dark,
-    bg: $background-dark
+  primary: $primary-dark,
+  secondary: $secondary-dark,
+  success: $success-dark,
+  warning: $warning-dark,
+  danger: $danger-dark,
+  body: $body-dark,
+  bg: $background-dark
 );
 
 @each $color, $value in $colors-dark {
-    @include root-var($color, $value, $html-vars-dark);
+  @include root-var($color, $value, $root-vars-dark);
 }
 
 // Spacing
-$s-0: 0;
-$s-1: 1px;
-$s-2: 0.125rem;
-$s-3: 0.25rem;
-$s-4: 0.5rem;
-$s-5: 0.75rem;
-$s-6: 1rem;
-$s-7: 1.25rem;
-$s-8: 1.5rem;
-$s-9: 2rem;
-$s-10: 3rem;
-$s-11: 5rem;
-$s-12: 8rem;
-$s-13: 10rem;
-$s-14: 16rem;
 
 $spacers: (
-    0: $s-0,
-    1: $s-1,
-    2: $s-2,
-    3: $s-3,
-    4: $s-4,
-    5: $s-5,
-    6: $s-6,
-    7: $s-7,
-    8: $s-8,
-    9: $s-9,
-    10: $s-10,
-    11: $s-11,
-    12: $s-12,
-    13: $s-13,
-    14: $s-14,
+  0: 0,
+  1: 1px,
+  2: 0.125rem,
+  3: 0.25rem,
+  4: 0.5rem,
+  5: 0.75rem,
+  6: 1rem,
+  7: 1.25rem,
+  8: 1.5rem,
+  9: 2rem,
+  10: 3rem,
+  11: 5rem,
+  12: 8rem,
+  13: 10rem,
+  14: 16rem
 );
 
 @each $spacer, $value in $spacers {
-    @include root-var("s-" + $spacer, $value);
+  @include root-var("s-" + $spacer, $value);
 }
 
 // Typography
-
 $type-scale: (
-    xs, sm, base, lg, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl, 9xl
+  xs, sm, base, lg, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl, 9xl
 );
 
 $font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -100,81 +83,53 @@ $font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation M
 $font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
 $font-families: (
-    sans: $font-sans,
-    mono: $font-mono,
-    serif: $font-serif,
-    display: $font-serif
+  sans: $font-sans,
+  mono: $font-mono,
+  serif: $font-serif,
+  display: $font-serif
 );
 
 @each $font, $value in $font-families {
-    @include root-var("font-" + $font, $value);
+  @include root-var("font-" + $font, $value);
 }
 
-$text-xs: 0.75rem;
-$text-sm: 0.875rem;
-$text-base: 1rem;
-$text-lg: 1.125rem;
-$text-xl: 1.25rem;
-$text-2xl: 1.5rem;
-$text-3xl: 1.875rem;
-$text-4xl: 2.25rem;
-$text-5xl: 3rem;
-$text-6xl: 3.75rem;
-$text-7xl: 4.5rem;
-$text-8xl: 6rem;
-$text-9xl: 8rem;
-
 $text-sizes: (
-    xs: $text-xs,
-    sm: $text-sm,
-    base: $text-base,
-    lg: $text-lg,
-    xl: $text-xl,
-    2xl: $text-2xl,
-    3xl: $text-3xl,
-    4xl: $text-4xl,
-    5xl: $text-5xl,
-    6xl: $text-6xl,
-    7xl: $text-7xl,
-    8xl: $text-8xl,
-    9xl: $text-9xl
+  xs: 0.75rem,
+  sm: 0.875rem,
+  base: 1rem,
+  lg: 1.125rem,
+  xl: 1.25rem,
+  2xl: 1.5rem,
+  3xl: 1.875rem,
+  4xl: 2.25rem,
+  5xl: 3rem,
+  6xl: 3.75rem,
+  7xl: 4.5rem,
+  8xl: 6rem,
+  9xl: 8rem
 );
 
-$lh-xs: 1rem;
-$lh-sm: 1.25rem;
-$lh-base: 1.5rem;
-$lh-lg: 1.75rem;
-$lh-xl: 1.75rem;
-$lh-2xl: 2rem;
-$lh-3xl: 2.25rem;
-$lh-4xl: 2.5rem;
-$lh-5xl: 1;
-$lh-6xl: 1;
-$lh-7xl: 1;
-$lh-8xl: 1;
-$lh-9xl: 1;
-
 $line-heights: (
-    xs: $lh-xs,
-    sm: $lh-sm,
-    base: $lh-base,
-    lg: $lh-lg,
-    xl: $lh-xl,
-    2xl: $lh-2xl,
-    3xl: $lh-3xl,
-    4xl: $lh-4xl,
-    5xl: $lh-5xl,
-    6xl: $lh-6xl,
-    7xl: $lh-7xl,
-    8xl: $lh-8xl,
-    9xl: $lh-9xl
+  xs: 1rem,
+  sm: 1.25rem,
+  base: 1.5rem,
+  lg: 1.75rem,
+  xl: 1.75rem,
+  2xl: 2rem,
+  3xl: 2.25rem,
+  4xl: 2.5rem,
+  5xl: 1,
+  6xl: 1,
+  7xl: 1,
+  8xl: 1,
+  9xl: 1
 );
 
 $headings: (
-    1: 5xl,
-    2: 4xl,
-    3: 3xl,
-    4: 2xl,
-    5: xl,
-    6: lg
+  1: 5xl,
+  2: 4xl,
+  3: 3xl,
+  4: 2xl,
+  5: xl,
+  6: lg
 );

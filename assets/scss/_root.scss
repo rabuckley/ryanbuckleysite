@@ -2,10 +2,8 @@
     @include set-vars($root-vars);
 }
 
-html {
-    @include set-vars($html-vars);
-}
-
-html.dark {
-    @include set-vars($html-vars-dark)
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include set-vars($root-vars-dark)
+    }
 }

@@ -13,10 +13,10 @@
 
 </head>
 
-<body>
+<body class="container">
+    {{ partial "navbar.html" . }}
     {{ block "main" . }}
     {{ end }}
-
     {{ partial "scripts/scripts.html" . }}
 </body>
 </html>
