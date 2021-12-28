@@ -1,0 +1,9 @@
+:root {
+    @include set-vars($root-vars);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include set-vars($root-vars-dark)
+    }
+}

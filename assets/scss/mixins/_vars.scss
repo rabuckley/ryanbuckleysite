@@ -1,0 +1,22 @@
+@function get-var($name, $fallback: null) {
+    @if $fallback != null {
+      @return var(--#{$variable-prefix}#{$name}, #{$fallback});
+    }
+    @else {
+      @return var(--#{$variable-prefix}#{$name});
+    }
+}
+
+@mixin root-var($name, $value, $map: $root-vars) {
+    $root-vars: map-merge($root-vars, (#{$name}: $value)) !global;
+}
+ 
+@mixin set-var($name, $value) {
+    --#{$variable-prefix}#{$name}: #{$value};
+}
+
+@mixin set-vars($var-map) {
+  @each $name, $value in $var-map {
+    @include set-var($name, $value);
+  }
+}

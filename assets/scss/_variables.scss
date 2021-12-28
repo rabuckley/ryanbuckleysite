@@ -1,0 +1,135 @@
+$variable-prefix: "";
+
+// Custom property maps
+$root-vars: ();
+$root-vars-dark: ();
+
+// Color
+$primary: #0284c7;
+$secondary: #A67DB8;
+$success: #22c55e;
+$warning: #fb923c;
+$danger: #e11d48;
+$body: #334155;
+$background: #fff;
+
+$colors: (
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  warning: $warning,
+  danger: $danger,
+  body: $body,
+  bg: $background
+);
+
+@each $color, $value in $colors {
+  @include root-var($color, $value);
+}
+
+$primary-dark: $primary;
+$secondary-dark: $secondary;
+$success-dark: $success;
+$warning-dark: $warning;
+$danger-dark: $danger;
+$body-dark: #e2e8f0;
+$background-dark: #27272a;
+
+$colors-dark: (
+  primary: $primary-dark,
+  secondary: $secondary-dark,
+  success: $success-dark,
+  warning: $warning-dark,
+  danger: $danger-dark,
+  body: $body-dark,
+  bg: $background-dark
+);
+
+@each $color, $value in $colors-dark {
+  @include root-var($color, $value, $root-vars-dark);
+}
+
+// Spacing
+
+$spacers: (
+  0: 0,
+  1: 1px,
+  2: 0.125rem,
+  3: 0.25rem,
+  4: 0.5rem,
+  5: 0.75rem,
+  6: 1rem,
+  7: 1.25rem,
+  8: 1.5rem,
+  9: 2rem,
+  10: 3rem,
+  11: 5rem,
+  12: 8rem,
+  13: 10rem,
+  14: 16rem
+);
+
+@each $spacer, $value in $spacers {
+  @include root-var("s-" + $spacer, $value);
+}
+
+// Typography
+$type-scale: (
+  xs, sm, base, lg, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl, 9xl
+);
+
+$font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;;
+$font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+$font-families: (
+  sans: $font-sans,
+  mono: $font-mono,
+  serif: $font-serif,
+  display: $font-serif
+);
+
+@each $font, $value in $font-families {
+  @include root-var("font-" + $font, $value);
+}
+
+$text-sizes: (
+  xs: 0.75rem,
+  sm: 0.875rem,
+  base: 1rem,
+  lg: 1.125rem,
+  xl: 1.25rem,
+  2xl: 1.5rem,
+  3xl: 1.875rem,
+  4xl: 2.25rem,
+  5xl: 3rem,
+  6xl: 3.75rem,
+  7xl: 4.5rem,
+  8xl: 6rem,
+  9xl: 8rem
+);
+
+$line-heights: (
+  xs: 1rem,
+  sm: 1.25rem,
+  base: 1.5rem,
+  lg: 1.75rem,
+  xl: 1.75rem,
+  2xl: 2rem,
+  3xl: 2.25rem,
+  4xl: 2.5rem,
+  5xl: 1,
+  6xl: 1,
+  7xl: 1,
+  8xl: 1,
+  9xl: 1
+);
+
+$headings: (
+  1: 5xl,
+  2: 4xl,
+  3: 3xl,
+  4: 2xl,
+  5: xl,
+  6: lg
+);
