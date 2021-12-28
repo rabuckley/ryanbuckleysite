@@ -1,16 +1,13 @@
 {{ define "main" }}
 <div class="container">
     {{ .Content }}
-
-    <section class="posts">
+    <section>
         <ul>
             {{ range .Pages }}
-            <li class="post">
-                <div class="card card-body">
-                    <p><strong><a class="post-title" href="{{.Permalink}}">{{.Title}}</a></strong></p>
-                    <p class="post-date">{{ .Page.PublishDate.Format "January 2, 2006" }}</p>
-                    <p class="post-description">{{ .Page.Description }}</p>
-                </div>
+            <li>
+                <p><a href="{{.Permalink}}">{{.Title}}</a></strong></p>
+                <p>{{ .Page.PublishDate.Format "January 2, 2006" }}</p>
+                <p>{{ .Page.Description }}</p>
             </li>
             {{ end }}
         </ul>

@@ -1,6 +1,6 @@
-@each $size, $value in $text-sizes {
+@each $size in $type-scale {
     .text-#{$size} {
-        font-size: $value;
+        font-size: map.get($text-sizes, $size);
         line-height: map.get($line-heights, $size);
     }
 }

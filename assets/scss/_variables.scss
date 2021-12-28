@@ -1,5 +1,54 @@
 $variable-prefix: "";
+
+// Custom property maps
 $root-vars: ();
+$html-vars: ();
+$html-vars-dark: ();
+
+// Color
+$primary: #0284c7;
+$secondary: #A67DB8;
+$success: #22c55e;
+$warning: #fb923c;
+$danger: #e11d48;
+$body: #334155;
+$background: #fff;
+
+$colors: (
+    primary: $primary,
+    secondary: $secondary,
+    success: $success,
+    warning: $warning,
+    danger: $danger,
+    body: $body,
+    bg: $background
+);
+
+@each $color, $value in $colors {
+    @include root-var($color, $value, $html-vars);
+}
+
+$primary-dark: $primary;
+$secondary-dark: $secondary;
+$success-dark: $success;
+$warning-dark: $warning;
+$danger-dark: $danger;
+$body-dark: #e2e8f0;
+$background-dark: #27272a;
+
+$colors-dark: (
+    primary: $primary-dark,
+    secondary: $secondary-dark,
+    success: $success-dark,
+    warning: $warning-dark,
+    danger: $danger-dark,
+    body: $body-dark,
+    bg: $background-dark
+);
+
+@each $color, $value in $colors-dark {
+    @include root-var($color, $value, $html-vars-dark);
+}
 
 // Spacing
 $s-0: 0;
@@ -41,6 +90,11 @@ $spacers: (
 }
 
 // Typography
+
+$type-scale: (
+    xs, sm, base, lg, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl, 9xl
+);
+
 $font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;;
 $font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;

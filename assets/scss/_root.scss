@@ -1,5 +1,11 @@
 :root {
-    @each $var, $value in $root-vars {
-        --#{$variable-prefix}#{$var}: #{$value};
-    }
+    @include set-var($root-vars);
+}
+
+html {
+    @include set-vars($html-vars);
+}
+
+html.dark {
+    @include set-vars($html-vars-dark)
 }

@@ -1,0 +1,45 @@
+.btn {
+    display: inline-block;
+    font-family: get-var(font-sans);
+    font-weight: 400;
+    font-size: $text-base;
+    line-height: $lh-base;
+    color: get-var(body-color);
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.625rem;
+    padding: get-var(s-3) get-var(s-4);
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  
+    &:hover {
+      color: get-var(body-color);
+    }
+  
+    .btn-check:focus + &,
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 0 3px rgba(get-var(primary-rgb), .25);
+    }
+  
+    .btn-check:checked + &,
+    .btn-check:active + &,
+    &:active,
+    &.active {
+      @include box-shadow($btn-active-box-shadow);
+  
+      &:focus {
+        @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+      }
+    }
+  
+    &:disabled,
+    &.disabled,
+    fieldset:disabled & {
+      pointer-events: none;
+      opacity: $btn-disabled-opacity;
+      @include box-shadow(none);
+    }
+  }

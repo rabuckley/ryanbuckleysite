@@ -9,8 +9,10 @@
 @import "./normalise";
 @import "./base";
 
-// Components
 @import "./root";
+
+// Components
+@import "./components/button";
 
 // Utilities
 @import "./utilities/text";

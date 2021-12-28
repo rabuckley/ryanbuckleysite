@@ -25,32 +25,6 @@ body {
   margin: 0;
 }
 
-
-// Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
-body {
-    // Font stacks
-$body-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' !default;
-
-// Monospace font stack
-// Note: SFMono-Regular needs to come before SF Mono to fix an older version of the font in Chrome
-$mono-font: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace !default;
-  font-family:
-		system-ui,
-		-apple-system, /* Firefox supports this but not yet `system-ui` */
-		'Segoe UI',
-		Roboto,
-		Helvetica,
-		Arial,
-		sans-serif,
-		'Apple Color Emoji',
-		'Segoe UI Emoji';
-}
-
-/*
-Grouping content
-================
-*/
-
 /**
 1. Add the correct height in Firefox.
 2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
@@ -71,25 +45,6 @@ abbr[title] {
 b,
 strong {
   font-weight: bolder;
-}
-
-/**
-1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
-2. Correct the odd 'em' font sizing in all browsers.
-*/
-
-code,
-kbd,
-samp,
-pre {
-  font-family:
-		ui-monospace,
-		SFMono-Regular,
-		Consolas,
-		'Liberation Mono',
-		Menlo,
-		monospace; /* 1 */
-  font-size: 1em; /* 2 */
 }
 
 // Add the correct font size in all browsers.
@@ -395,6 +350,7 @@ code,
 kbd,
 samp {
   font-family: get-var(font-mono);
+  font-size: 1em;
 }
 
 /**
