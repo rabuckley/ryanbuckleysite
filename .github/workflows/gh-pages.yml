@@ -1,6 +1,8 @@
-name: CI Checks
+name: Deploy GitHub Pages
 
-on: [ pull_request ]
+on:
+  push:
+    branches: [ gh_pages ]
 
 jobs:
   deploy:
@@ -19,8 +21,20 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
+    - name: Clean public directory
+      run: rm -rf public
+
     - name: Install NPM Dependencies
       run: npm i -y
 
     - name: Build
       run: hugo --minify
+
+    - name: Create CNAME file
+      run: echo 'ryanbuckley.uk' > public/CNAME
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
