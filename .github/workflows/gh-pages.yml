@@ -2,7 +2,7 @@ name: Deploy GitHub Pages
 
 on:
   push:
-    branches: [ gh_pages ]
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -29,9 +29,6 @@ jobs:
 
     - name: Build
       run: hugo --minify
-
-    - name: Create CNAME file
-      run: echo 'ryanbuckley.uk' > public/CNAME
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
