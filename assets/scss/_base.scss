@@ -1,3 +1,4 @@
+@use "sass:map";
 // Heading styles
 @each $heading, $size in $headings {
     .h#{$heading} {
