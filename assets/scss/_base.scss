@@ -1,9 +1,0 @@
-// Heading styles
-@each $heading, $size in $headings {
-    .h#{$heading} {
-        font-family: get-var(font-display);
-        font-size: map-get($text-sizes, $size);
-        line-height: map-get($line-heights, $size);
-        font-weight: 500;
-    }
-}
