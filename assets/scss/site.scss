@@ -2,9 +2,17 @@
 @use "sass:math";
 @use "sass:map";
 
+$bootstrap: "../../node_modules/bootstrap";
+
+@import "#{$bootstrap}/functions";
+@import "#{$bootstrap}/variables";
+@import "#{$bootstrap}/mixins";
+@import "#{$bootstrap}/utilities";
+
 @import "./mixins/vars";
 
 // Variables
+@import "#{$bootstrap}/variables";
 @import "./variables";
 
 // Base styles
@@ -14,7 +22,7 @@
 @import "./root";
 
 // Components
-@import "./components/button";
+@import "#{$bootstrap}/components/button";
 
 // Utilities
 @import "./utilities/text";
