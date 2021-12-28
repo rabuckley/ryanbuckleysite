@@ -1,5 +1,5 @@
 :root {
-    @include set-var($root-vars);
+    @include set-vars($root-vars);
 }
 
 html {
