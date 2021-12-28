@@ -1,7 +1,7 @@
-map-getmap-get@each $size in $type-scale {
+@each $size in $type-scale {
     .text-#{$size} {
-        font-size: map.get($text-sizes, $size);
-        line-height: map.get($line-heights, $size);
+        font-size: map-get($text-sizes, $size);
+        line-height: map-get($line-heights, $size);
     }
 }
 
