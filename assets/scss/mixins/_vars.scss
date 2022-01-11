@@ -1,5 +1,5 @@
 // Get any var
-$prefix: "rb-";
+$prefix: "";
 
 @function get-var($name, $fallback: null) {
   @if $fallback != null {
@@ -18,7 +18,7 @@ $prefix: "rb-";
 @mixin root-var-dark($name, $value) {
   $root-vars-dark: map-merge($root-vars-dark, (#{$name}: $value)) !global;
 }
- 
+
 // Add variable to current scope
 @mixin set-var($name, $value) {
   --#{$prefix}#{$name}: #{$value};
