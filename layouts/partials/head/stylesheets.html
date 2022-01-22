@@ -1,3 +1,11 @@
-{{ $options := (dict "outputStyle" "compressed" "enableSourceMap" true ) }}
-{{ $css := resources.Get "scss/site.scss" | resources.ToCSS $options }}
-<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" >
+{{ if hugo.IsProduction }}
+  {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" false) }}
+  {{ $css := resources.Get "scss/site.scss" | resources.ToCSS $options }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" >
+{{ else }}
+  {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" true ) }}
+  {{ $css := resources.Get "scss/site.scss" | resources.ToCSS $options }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" >
+{{ end }}
+
+
