@@ -38,7 +38,7 @@ hr {
 // Add the correct text decoration in Chrome, Edge, and Safari.
 abbr[title] {
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
 }
 
 // Add the correct font weight in Edge and Safari.
@@ -101,15 +101,16 @@ Remove the inheritance of text transform in Edge and Firefox.
 */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 
 // Correct the inability to style clickable types in iOS and Safari.
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+[type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
 }
 
@@ -132,7 +133,6 @@ See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d4
   box-shadow: none;
 }
 
-
 // Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
 legend {
   padding: 0;
@@ -154,7 +154,7 @@ progress {
 2. Correct the outline style in Safari.
 */
 
-[type='search'] {
+[type="search"] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
@@ -173,7 +173,6 @@ progress {
   -webkit-appearance: button; /* 1 */
   font: inherit; /* 2 */
 }
-
 
 // Add the correct display in Chrome and Safari.
 summary {

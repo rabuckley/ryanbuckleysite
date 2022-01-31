@@ -1,14 +1,13 @@
-{{ define "main" }}
-    {{ .Content }}
-    <section>
-        <ul>
-            {{ range .Pages }}
-            <li class="border-bottom py-6">
-                <p><a class="link" href="{{.Permalink}}">{{.Title}}</a></strong></p>
-                <p>{{ .Page.PublishDate.Format "January 2, 2006" }}</p>
-                <p>{{ .Page.Description }}</p>
-            </li>
-            {{ end }}
-        </ul>
-    </section>
+{{ define "main" }} {{ .Content }}
+<section>
+  <ul>
+    {{ range .Pages }}
+    <li class="border-bottom py-6">
+      <p><a class="link" href="{{.Permalink}}">{{.Title}}</a></p>
+      <p>{{ .Page.PublishDate.Format "January 2, 2006" }}</p>
+      <p>{{ .Page.Description }}</p>
+    </li>
+    {{ end }}
+  </ul>
+</section>
 {{ end }}

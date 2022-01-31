@@ -1,12 +1,12 @@
 @each $space, $value in $spacers {
-    .p-#{$space} {
-        padding: get-var(s-#{$space});
-    }
+  .p-#{$space} {
+    padding: get-var(s-#{$space});
+  }
 }
 
 @each $space, $value in $spacers {
-    .py-#{$space} {
-        padding-top: get-var(s-#{$space});
-        padding-bottom: get-var(s-#{$space});
-    }
+  .py-#{$space} {
+    padding-top: get-var(s-#{$space});
+    padding-bottom: get-var(s-#{$space});
+  }
 }

@@ -1,26 +1,26 @@
 body {
-    background-color: get-var(bg);
-    color: get-var(body);
+  background-color: get-var(bg);
+  color: get-var(body);
 }
 
 // Heading styles
 @each $heading, $size in $headings {
-    h#{$heading},
-    .h#{$heading} {
-        font-family: get-var(font-display);
-        font-size: map-get($text-sizes, $size);
-        line-height: map-get($line-heights, $size);
-        font-weight: 600;
-        margin-bottom: get-var(s-7);
-    }
+  h#{$heading},
+  .h#{$heading} {
+    font-family: get-var(font-display);
+    font-size: map-get($text-sizes, $size);
+    line-height: map-get($line-heights, $size);
+    font-weight: 600;
+    margin-bottom: get-var(s-7);
+  }
 }
 
 .link {
-    color: get-var(primary);
+  color: get-var(primary);
 
-    &:hover,
-    &:focus {
-        color: get-var(primary-hover);
-        text-decoration: underline;
-    }
+  &:hover,
+  &:focus {
+    color: get-var(primary-hover);
+    text-decoration: underline;
+  }
 }

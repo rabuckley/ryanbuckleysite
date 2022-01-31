@@ -1,3 +1,3 @@
-{{ $options := (dict "minify" true) }}
-{{ $js := resources.Get "js/main.js" | js.Build $options }}
+{{ $options := (dict "minify" true) }} {{ $js := resources.Get "js/main.js" |
+js.Build $options }}
 <script src="{{ $js.RelPermalink }}"></script>

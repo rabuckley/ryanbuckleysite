@@ -4,8 +4,7 @@ $prefix: "";
 @function get-var($name, $fallback: null) {
   @if $fallback != null {
     @return var(--#{$prefix}#{$name}, #{$fallback});
-  }
-  @else {
+  } @else {
     @return var(--#{$prefix}#{$name});
   }
 }

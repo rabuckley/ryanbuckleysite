@@ -6,6 +6,7 @@
   "scripts": {
     "start": "hugo server -D",
     "build": "hugo",
+    "format": "prettier . --write",
     "spellcheck": "cspell ./content"
   },
   "keywords": [],

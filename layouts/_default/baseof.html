@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-gb">
-
-<head>
-    {{ partial "head/metadata.html" . }}
-    {{ block "meta" . }}{{ end }}
+  <head>
+    {{ partial "head/metadata.html" . }} {{ block "meta" . }}{{ end }}
     <title>{{ .Site.Title }}</title>
     {{ partial "head/stylesheets.html" . }}
-</head>
+  </head>
 
-<body class="container">
-    <div>
-        {{ partial "navbar.html" . }}
-        <main>
-            {{ block "main" . }}
-        </main>
-        {{ end }}
-    </div>
+  <body class="container">
+    <div>{{ partial "navbar.html" . }} {{ block "main" . }}{{ end }}</div>
     {{ partial "scripts/scripts.html" . }}
-</body>
+  </body>
 </html>
