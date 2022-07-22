@@ -1,17 +1,13 @@
-{{ if hugo.IsProduction }} {{ $options := (dict "outputStyle" "compressed"
-"enableSourceMap" false) }} {{ $css := resources.Get "scss/site.scss" |
-resources.ToCSS $options }}
-<link
-  rel="stylesheet"
-  href="{{ $css.RelPermalink }}"
-  integrity="{{ $css.Data.Integrity }}"
-/>
-{{ else }} {{ $options := (dict "outputStyle" "compressed" "enableSourceMap"
-true ) }} {{ $css := resources.Get "scss/site.scss" | resources.ToCSS $options
-}}
-<link
-  rel="stylesheet"
-  href="{{ $css.RelPermalink }}"
-  integrity="{{ $css.Data.Integrity }}"
-/>
+{{ $styles := resources.Get "css/site.css" | postCSS }}
+{{ if .Site.IsServer }}
+  {{ $styles := $styles | resources.ExecuteAsTemplate (printf "styles.dev.%v.css"
+    now.UnixMilli) .
+  }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+{{ else }}
+  {{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
+  <link
+    rel="stylesheet"
+    href="{{ $styles.RelPermalink }}"
+    integrity="{{ $styles.Data.Integrity }}" />
 {{ end }}

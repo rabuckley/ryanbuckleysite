@@ -1,36 +1,962 @@
-(()=>{var Le=Object.create;var X=Object.defineProperty;var be=Object.getOwnPropertyDescriptor;var ve=Object.getOwnPropertyNames;var Oe=Object.getPrototypeOf,we=Object.prototype.hasOwnProperty;var Ie=e=>X(e,"__esModule",{value:!0});var z=(e,s)=>()=>(s||e((s={exports:{}}).exports,s),s.exports);var Me=(e,s,A,a)=>{if(s&&typeof s=="object"||typeof s=="function")for(let h of ve(s))!we.call(e,h)&&(A||h!=="default")&&X(e,h,{get:()=>s[h],enumerable:!(a=be(s,h))||a.enumerable});return e},_e=(e,s)=>Me(Ie(X(e!=null?Le(Oe(e)):{},"default",!s&&e&&e.__esModule?{get:()=>e.default,enumerable:!0}:{value:e,enumerable:!0})),e);var U=z((Z,ee)=>{(function(e,s){typeof Z=="object"&&typeof ee!="undefined"?ee.exports=s():typeof define=="function"&&define.amd?define(s):(e=typeof globalThis!="undefined"?globalThis:e||self,e.EventHandler=s())})(Z,function(){"use strict";let e=()=>{let{jQuery:t}=window;return t&&!document.body.hasAttribute("data-bs-no-jquery")?t:null},s=/[^.]*(?=\..*)\.|.*/,A=/\..*/,a=/::\d+$/,h={},n=1,E={mouseenter:"mouseover",mouseleave:"mouseout"},g=/^(mouseenter|mouseleave)/i,L=new Set(["click","dblclick","mouseup","mousedown","contextmenu","mousewheel","DOMMouseScroll","mouseover","mouseout","mousemove","selectstart","selectend","keydown","keypress","keyup","orientationchange","touchstart","touchmove","touchend","touchcancel","pointerdown","pointermove","pointerup","pointerleave","pointercancel","gesturestart","gesturechange","gestureend","focus","blur","change","reset","select","submit","focusin","focusout","load","unload","beforeunload","resize","move","DOMContentLoaded","readystatechange","error","abort","scroll"]);function v(t,o){return o&&`${o}::${n++}`||t.uidEvent||n++}function K(t){let o=v(t);return t.uidEvent=o,h[o]=h[o]||{},h[o]}function Y(t,o){return function c(d){return d.delegateTarget=t,c.oneOff&&N.off(t,d.type,o),o.apply(t,[d])}}function Q(t,o,c){return function d(y){let _=t.querySelectorAll(o);for(let{target:m}=y;m&&m!==this;m=m.parentNode)for(let D=_.length;D--;)if(_[D]===m)return y.delegateTarget=m,d.oneOff&&N.off(t,y.type,o,c),c.apply(m,[y]);return null}}function P(t,o,c=null){let d=Object.keys(t);for(let y=0,_=d.length;y<_;y++){let m=t[d[y]];if(m.originalHandler===o&&m.delegationSelector===c)return m}return null}function $(t,o,c){let d=typeof o=="string",y=d?c:o,_=C(t);return L.has(_)||(_=t),[d,y,_]}function l(t,o,c,d,y){if(typeof o!="string"||!t)return;if(c||(c=d,d=null),g.test(o)){let V=B=>function(I){if(!I.relatedTarget||I.relatedTarget!==I.delegateTarget&&!I.delegateTarget.contains(I.relatedTarget))return B.call(this,I)};d?d=V(d):c=V(c)}let[_,m,D]=$(o,c,d),b=K(t),x=b[D]||(b[D]={}),M=P(x,m,_?c:null);if(M){M.oneOff=M.oneOff&&y;return}let S=v(m,o.replace(s,"")),w=_?Q(t,c,d):Y(t,c);w.delegationSelector=_?c:null,w.originalHandler=m,w.oneOff=y,w.uidEvent=S,x[S]=w,t.addEventListener(D,w,_)}function f(t,o,c,d,y){let _=P(o[c],d,y);!_||(t.removeEventListener(c,_,Boolean(y)),delete o[c][_.uidEvent])}function p(t,o,c,d){let y=o[c]||{};Object.keys(y).forEach(_=>{if(_.includes(d)){let m=y[_];f(t,o,c,m.originalHandler,m.delegationSelector)}})}function C(t){return t=t.replace(A,""),E[t]||t}let N={on(t,o,c,d){l(t,o,c,d,!1)},one(t,o,c,d){l(t,o,c,d,!0)},off(t,o,c,d){if(typeof o!="string"||!t)return;let[y,_,m]=$(o,c,d),D=m!==o,b=K(t),x=o.startsWith(".");if(typeof _!="undefined"){if(!b||!b[m])return;f(t,b,m,_,y?c:null);return}x&&Object.keys(b).forEach(S=>{p(t,b,S,o.slice(1))});let M=b[m]||{};Object.keys(M).forEach(S=>{let w=S.replace(a,"");if(!D||o.includes(w)){let V=M[S];f(t,b,m,V.originalHandler,V.delegationSelector)}})},trigger(t,o,c){if(typeof o!="string"||!t)return null;let d=e(),y=C(o),_=o!==y,m=L.has(y),D,b=!0,x=!0,M=!1,S=null;return _&&d&&(D=d.Event(o,c),d(t).trigger(D),b=!D.isPropagationStopped(),x=!D.isImmediatePropagationStopped(),M=D.isDefaultPrevented()),m?(S=document.createEvent("HTMLEvents"),S.initEvent(y,b,!0)):S=new CustomEvent(o,{bubbles:b,cancelable:!0}),typeof c!="undefined"&&Object.keys(c).forEach(w=>{Object.defineProperty(S,w,{get(){return c[w]}})}),M&&S.preventDefault(),x&&t.dispatchEvent(S),S.defaultPrevented&&typeof D!="undefined"&&D.preventDefault(),S}};return N})});var se=z((te,ne)=>{(function(e,s){typeof te=="object"&&typeof ne!="undefined"?ne.exports=s():typeof define=="function"&&define.amd?define(s):(e=typeof globalThis!="undefined"?globalThis:e||self,e.Data=s())})(te,function(){"use strict";let e=new Map;return{set(A,a,h){e.has(A)||e.set(A,new Map);let n=e.get(A);if(!n.has(a)&&n.size!==0){console.error(`Bootstrap doesn't allow more than one instance per element. Bound instance: ${Array.from(n.keys())[0]}.`);return}n.set(a,h)},get(A,a){return e.has(A)&&e.get(A).get(a)||null},remove(A,a){if(!e.has(A))return;let h=e.get(A);h.delete(a),h.size===0&&e.delete(A)}}})});var oe=z((ie,re)=>{(function(e,s){typeof ie=="object"&&typeof re!="undefined"?re.exports=s(se(),U()):typeof define=="function"&&define.amd?define(["./dom/data","./dom/event-handler"],s):(e=typeof globalThis!="undefined"?globalThis:e||self,e.Base=s(e.Data,e.EventHandler))})(ie,function(e,s){"use strict";let A=l=>l&&typeof l=="object"&&"default"in l?l:{default:l},a=A(e),h=A(s),n=1e3,E="transitionend",g=l=>{if(!l)return 0;let{transitionDuration:f,transitionDelay:p}=window.getComputedStyle(l),C=Number.parseFloat(f),N=Number.parseFloat(p);return!C&&!N?0:(f=f.split(",")[0],p=p.split(",")[0],(Number.parseFloat(f)+Number.parseFloat(p))*n)},L=l=>{l.dispatchEvent(new Event(E))},v=l=>!l||typeof l!="object"?!1:(typeof l.jquery!="undefined"&&(l=l[0]),typeof l.nodeType!="undefined"),K=l=>v(l)?l.jquery?l[0]:l:typeof l=="string"&&l.length>0?document.querySelector(l):null,Y=l=>{typeof l=="function"&&l()},Q=(l,f,p=!0)=>{if(!p){Y(l);return}let C=5,N=g(f)+C,t=!1,o=({target:c})=>{c===f&&(t=!0,f.removeEventListener(E,o),Y(l))};f.addEventListener(E,o),setTimeout(()=>{t||L(f)},N)},P="5.1.3";class ${constructor(f){f=K(f),!!f&&(this._element=f,a.default.set(this._element,this.constructor.DATA_KEY,this))}dispose(){a.default.remove(this._element,this.constructor.DATA_KEY),h.default.off(this._element,this.constructor.EVENT_KEY),Object.getOwnPropertyNames(this).forEach(f=>{this[f]=null})}_queueCallback(f,p,C=!0){Q(f,p,C)}static getInstance(f){return a.default.get(K(f),this.DATA_KEY)}static getOrCreateInstance(f,p={}){return this.getInstance(f)||new this(f,typeof p=="object"?p:null)}static get VERSION(){return P}static get NAME(){throw new Error('You have to implement the static method "NAME", for each component!')}static get DATA_KEY(){return`bs.${this.NAME}`}static get EVENT_KEY(){return`.${this.DATA_KEY}`}}return $})});var me=z((ae,ue)=>{(function(e,s){typeof ae=="object"&&typeof ue!="undefined"?ue.exports=s(U(),oe()):typeof define=="function"&&define.amd?define(["./dom/event-handler","./base-component"],s):(e=typeof globalThis!="undefined"?globalThis:e||self,e.Button=s(e.EventHandler,e.Base))})(ae,function(e,s){"use strict";let A=p=>p&&typeof p=="object"&&"default"in p?p:{default:p},a=A(e),h=A(s),n=()=>{let{jQuery:p}=window;return p&&!document.body.hasAttribute("data-bs-no-jquery")?p:null},E=[],g=p=>{document.readyState==="loading"?(E.length||document.addEventListener("DOMContentLoaded",()=>{E.forEach(C=>C())}),E.push(p)):p()},L=p=>{g(()=>{let C=n();if(C){let N=p.NAME,t=C.fn[N];C.fn[N]=p.jQueryInterface,C.fn[N].Constructor=p,C.fn[N].noConflict=()=>(C.fn[N]=t,p.jQueryInterface)}})},v="button",Y=".bs.button",Q=".data-api",P="active",$='[data-bs-toggle="button"]',l=`click${Y}${Q}`;class f extends h.default{static get NAME(){return v}toggle(){this._element.setAttribute("aria-pressed",this._element.classList.toggle(P))}static jQueryInterface(C){return this.each(function(){let N=f.getOrCreateInstance(this);C==="toggle"&&N[C]()})}}return a.default.on(document,l,$,p=>{p.preventDefault();let C=p.target.closest($);f.getOrCreateInstance(C).toggle()}),L(f),f})});var ye=z((ce,le)=>{(function(e,s){typeof ce=="object"&&typeof le!="undefined"?le.exports=s():typeof define=="function"&&define.amd?define(s):(e=typeof globalThis!="undefined"?globalThis:e||self,e.Manipulator=s())})(ce,function(){"use strict";function e(a){return a==="true"?!0:a==="false"?!1:a===Number(a).toString()?Number(a):a===""||a==="null"?null:a}function s(a){return a.replace(/[A-Z]/g,h=>`-${h.toLowerCase()}`)}return{setDataAttribute(a,h,n){a.setAttribute(`data-bs-${s(h)}`,n)},removeDataAttribute(a,h){a.removeAttribute(`data-bs-${s(h)}`)},getDataAttributes(a){if(!a)return{};let h={};return Object.keys(a.dataset).filter(n=>n.startsWith("bs")).forEach(n=>{let E=n.replace(/^bs/,"");E=E.charAt(0).toLowerCase()+E.slice(1,E.length),h[E]=e(a.dataset[n])}),h},getDataAttribute(a,h){return e(a.getAttribute(`data-bs-${s(h)}`))},offset(a){let h=a.getBoundingClientRect();return{top:h.top+window.pageYOffset,left:h.left+window.pageXOffset}},position(a){return{top:a.offsetTop,left:a.offsetLeft}}}})});var Ae=z((fe,de)=>{(function(e,s){typeof fe=="object"&&typeof de!="undefined"?de.exports=s():typeof define=="function"&&define.amd?define(s):(e=typeof globalThis!="undefined"?globalThis:e||self,e.SelectorEngine=s())})(fe,function(){"use strict";let e=n=>!n||typeof n!="object"?!1:(typeof n.jquery!="undefined"&&(n=n[0]),typeof n.nodeType!="undefined"),s=n=>!e(n)||n.getClientRects().length===0?!1:getComputedStyle(n).getPropertyValue("visibility")==="visible",A=n=>!n||n.nodeType!==Node.ELEMENT_NODE||n.classList.contains("disabled")?!0:typeof n.disabled!="undefined"?n.disabled:n.hasAttribute("disabled")&&n.getAttribute("disabled")!=="false",a=3;return{find(n,E=document.documentElement){return[].concat(...Element.prototype.querySelectorAll.call(E,n))},findOne(n,E=document.documentElement){return Element.prototype.querySelector.call(E,n)},children(n,E){return[].concat(...n.children).filter(g=>g.matches(E))},parents(n,E){let g=[],L=n.parentNode;for(;L&&L.nodeType===Node.ELEMENT_NODE&&L.nodeType!==a;)L.matches(E)&&g.push(L),L=L.parentNode;return g},prev(n,E){let g=n.previousElementSibling;for(;g;){if(g.matches(E))return[g];g=g.previousElementSibling}return[]},next(n,E){let g=n.nextElementSibling;for(;g;){if(g.matches(E))return[g];g=g.nextElementSibling}return[]},focusableChildren(n){let E=["a","button","input","textarea","select","details","[tabindex]",'[contenteditable="true"]'].map(g=>`${g}:not([tabindex^="-"])`).join(", ");return this.find(E,n).filter(g=>!A(g)&&s(g))}}})});var Te=z((he,pe)=>{(function(e,s){typeof he=="object"&&typeof pe!="undefined"?pe.exports=s(se(),U(),ye(),Ae(),oe()):typeof define=="function"&&define.amd?define(["./dom/data","./dom/event-handler","./dom/manipulator","./dom/selector-engine","./base-component"],s):(e=typeof globalThis!="undefined"?globalThis:e||self,e.Collapse=s(e.Data,e.EventHandler,e.Manipulator,e.SelectorEngine,e.Base))})(he,function(e,s,A,a,h){"use strict";let n=r=>r&&typeof r=="object"&&"default"in r?r:{default:r},E=n(e),g=n(s),L=n(A),v=n(a),K=n(h),Y=r=>r==null?`${r}`:{}.toString.call(r).match(/\s([a-z]+)/i)[1].toLowerCase(),Q=r=>{let i=r.getAttribute("data-bs-target");if(!i||i==="#"){let u=r.getAttribute("href");if(!u||!u.includes("#")&&!u.startsWith("."))return null;u.includes("#")&&!u.startsWith("#")&&(u=`#${u.split("#")[1]}`),i=u&&u!=="#"?u.trim():null}return i},P=r=>{let i=Q(r);return i&&document.querySelector(i)?i:null},$=r=>{let i=Q(r);return i?document.querySelector(i):null},l=r=>!r||typeof r!="object"?!1:(typeof r.jquery!="undefined"&&(r=r[0]),typeof r.nodeType!="undefined"),f=r=>l(r)?r.jquery?r[0]:r:typeof r=="string"&&r.length>0?document.querySelector(r):null,p=(r,i,u)=>{Object.keys(u).forEach(T=>{let R=u[T],O=i[T],H=O&&l(O)?"element":Y(O);if(!new RegExp(R).test(H))throw new TypeError(`${r.toUpperCase()}: Option "${T}" provided type "${H}" but expected type "${R}".`)})},C=r=>{r.offsetHeight},N=()=>{let{jQuery:r}=window;return r&&!document.body.hasAttribute("data-bs-no-jquery")?r:null},t=[],o=r=>{document.readyState==="loading"?(t.length||document.addEventListener("DOMContentLoaded",()=>{t.forEach(i=>i())}),t.push(r)):r()},c=r=>{o(()=>{let i=N();if(i){let u=r.NAME,T=i.fn[u];i.fn[u]=r.jQueryInterface,i.fn[u].Constructor=r,i.fn[u].noConflict=()=>(i.fn[u]=T,r.jQueryInterface)}})},d="collapse",y="bs.collapse",_=`.${y}`,m=".data-api",D={toggle:!0,parent:null},b={toggle:"boolean",parent:"(null|element)"},x=`show${_}`,M=`shown${_}`,S=`hide${_}`,w=`hidden${_}`,V=`click${_}${m}`,B="show",I="collapse",W="collapsing",ge="collapsed",Ee=`:scope .${I} .${I}`,Ce="collapse-horizontal",De="width",Ne="height",Se=".collapse.show, .collapse.collapsing",G='[data-bs-toggle="collapse"]';class j extends K.default{constructor(i,u){super(i);this._isTransitioning=!1,this._config=this._getConfig(u),this._triggerArray=[];let T=v.default.find(G);for(let R=0,O=T.length;R<O;R++){let H=T[R],k=P(H),F=v.default.find(k).filter(q=>q===this._element);k!==null&&F.length&&(this._selector=k,this._triggerArray.push(H))}this._initializeChildren(),this._config.parent||this._addAriaAndCollapsedClass(this._triggerArray,this._isShown()),this._config.toggle&&this.toggle()}static get Default(){return D}static get NAME(){return d}toggle(){this._isShown()?this.hide():this.show()}show(){if(this._isTransitioning||this._isShown())return;let i=[],u;if(this._config.parent){let q=v.default.find(Ee,this._config.parent);i=v.default.find(Se,this._config.parent).filter(J=>!q.includes(J))}let T=v.default.findOne(this._selector);if(i.length){let q=i.find(J=>T!==J);if(u=q?j.getInstance(q):null,u&&u._isTransitioning)return}if(g.default.trigger(this._element,x).defaultPrevented)return;i.forEach(q=>{T!==q&&j.getOrCreateInstance(q,{toggle:!1}).hide(),u||E.default.set(q,y,null)});let O=this._getDimension();this._element.classList.remove(I),this._element.classList.add(W),this._element.style[O]=0,this._addAriaAndCollapsedClass(this._triggerArray,!0),this._isTransitioning=!0;let H=()=>{this._isTransitioning=!1,this._element.classList.remove(W),this._element.classList.add(I,B),this._element.style[O]="",g.default.trigger(this._element,M)},F=`scroll${O[0].toUpperCase()+O.slice(1)}`;this._queueCallback(H,this._element,!0),this._element.style[O]=`${this._element[F]}px`}hide(){if(this._isTransitioning||!this._isShown()||g.default.trigger(this._element,S).defaultPrevented)return;let u=this._getDimension();this._element.style[u]=`${this._element.getBoundingClientRect()[u]}px`,C(this._element),this._element.classList.add(W),this._element.classList.remove(I,B);let T=this._triggerArray.length;for(let O=0;O<T;O++){let H=this._triggerArray[O],k=$(H);k&&!this._isShown(k)&&this._addAriaAndCollapsedClass([H],!1)}this._isTransitioning=!0;let R=()=>{this._isTransitioning=!1,this._element.classList.remove(W),this._element.classList.add(I),g.default.trigger(this._element,w)};this._element.style[u]="",this._queueCallback(R,this._element,!0)}_isShown(i=this._element){return i.classList.contains(B)}_getConfig(i){return i={...D,...L.default.getDataAttributes(this._element),...i},i.toggle=Boolean(i.toggle),i.parent=f(i.parent),p(d,i,b),i}_getDimension(){return this._element.classList.contains(Ce)?De:Ne}_initializeChildren(){if(!this._config.parent)return;let i=v.default.find(Ee,this._config.parent);v.default.find(G,this._config.parent).filter(u=>!i.includes(u)).forEach(u=>{let T=$(u);T&&this._addAriaAndCollapsedClass([u],this._isShown(T))})}_addAriaAndCollapsedClass(i,u){!i.length||i.forEach(T=>{u?T.classList.remove(ge):T.classList.add(ge),T.setAttribute("aria-expanded",u)})}static jQueryInterface(i){return this.each(function(){let u={};typeof i=="string"&&/show|hide/.test(i)&&(u.toggle=!1);let T=j.getOrCreateInstance(this,u);if(typeof i=="string"){if(typeof T[i]=="undefined")throw new TypeError(`No method named "${i}"`);T[i]()}})}}return g.default.on(document,V,G,function(r){(r.target.tagName==="A"||r.delegateTarget&&r.delegateTarget.tagName==="A")&&r.preventDefault();let i=P(this);v.default.find(i).forEach(T=>{j.getOrCreateInstance(T,{toggle:!1}).toggle()})}),c(j),j})});var He=_e(me()),qe=_e(Te());})();
+(() => {
+  var Le = Object.create;
+  var X = Object.defineProperty;
+  var be = Object.getOwnPropertyDescriptor;
+  var ve = Object.getOwnPropertyNames;
+  var Oe = Object.getPrototypeOf,
+    we = Object.prototype.hasOwnProperty;
+  var Ie = (e) => X(e, "__esModule", { value: !0 });
+  var z = (e, s) => () => (s || e((s = { exports: {} }).exports, s), s.exports);
+  var Me = (e, s, A, a) => {
+      if ((s && typeof s == "object") || typeof s == "function")
+        for (let h of ve(s))
+          !we.call(e, h) &&
+            (A || h !== "default") &&
+            X(e, h, {
+              get: () => s[h],
+              enumerable: !(a = be(s, h)) || a.enumerable,
+            });
+      return e;
+    },
+    _e = (e, s) =>
+      Me(
+        Ie(
+          X(
+            e != null ? Le(Oe(e)) : {},
+            "default",
+            !s && e && e.__esModule
+              ? { get: () => e.default, enumerable: !0 }
+              : { value: e, enumerable: !0 }
+          )
+        ),
+        e
+      );
+  var U = z((Z, ee) => {
+    (function (e, s) {
+      typeof Z == "object" && typeof ee != "undefined"
+        ? (ee.exports = s())
+        : typeof define == "function" && define.amd
+        ? define(s)
+        : ((e = typeof globalThis != "undefined" ? globalThis : e || self),
+          (e.EventHandler = s()));
+    })(Z, function () {
+      "use strict";
+      let e = () => {
+          let { jQuery: t } = window;
+          return t && !document.body.hasAttribute("data-bs-no-jquery")
+            ? t
+            : null;
+        },
+        s = /[^.]*(?=\..*)\.|.*/,
+        A = /\..*/,
+        a = /::\d+$/,
+        h = {},
+        n = 1,
+        E = { mouseenter: "mouseover", mouseleave: "mouseout" },
+        g = /^(mouseenter|mouseleave)/i,
+        L = new Set([
+          "click",
+          "dblclick",
+          "mouseup",
+          "mousedown",
+          "contextmenu",
+          "mousewheel",
+          "DOMMouseScroll",
+          "mouseover",
+          "mouseout",
+          "mousemove",
+          "selectstart",
+          "selectend",
+          "keydown",
+          "keypress",
+          "keyup",
+          "orientationchange",
+          "touchstart",
+          "touchmove",
+          "touchend",
+          "touchcancel",
+          "pointerdown",
+          "pointermove",
+          "pointerup",
+          "pointerleave",
+          "pointercancel",
+          "gesturestart",
+          "gesturechange",
+          "gestureend",
+          "focus",
+          "blur",
+          "change",
+          "reset",
+          "select",
+          "submit",
+          "focusin",
+          "focusout",
+          "load",
+          "unload",
+          "beforeunload",
+          "resize",
+          "move",
+          "DOMContentLoaded",
+          "readystatechange",
+          "error",
+          "abort",
+          "scroll",
+        ]);
+      function v(t, o) {
+        return (o && `${o}::${n++}`) || t.uidEvent || n++;
+      }
+      function K(t) {
+        let o = v(t);
+        return (t.uidEvent = o), (h[o] = h[o] || {}), h[o];
+      }
+      function Y(t, o) {
+        return function c(d) {
+          return (
+            (d.delegateTarget = t),
+            c.oneOff && N.off(t, d.type, o),
+            o.apply(t, [d])
+          );
+        };
+      }
+      function Q(t, o, c) {
+        return function d(y) {
+          let _ = t.querySelectorAll(o);
+          for (let { target: m } = y; m && m !== this; m = m.parentNode)
+            for (let D = _.length; D--; )
+              if (_[D] === m)
+                return (
+                  (y.delegateTarget = m),
+                  d.oneOff && N.off(t, y.type, o, c),
+                  c.apply(m, [y])
+                );
+          return null;
+        };
+      }
+      function P(t, o, c = null) {
+        let d = Object.keys(t);
+        for (let y = 0, _ = d.length; y < _; y++) {
+          let m = t[d[y]];
+          if (m.originalHandler === o && m.delegationSelector === c) return m;
+        }
+        return null;
+      }
+      function $(t, o, c) {
+        let d = typeof o == "string",
+          y = d ? c : o,
+          _ = C(t);
+        return L.has(_) || (_ = t), [d, y, _];
+      }
+      function l(t, o, c, d, y) {
+        if (typeof o != "string" || !t) return;
+        if ((c || ((c = d), (d = null)), g.test(o))) {
+          let V = (B) =>
+            function (I) {
+              if (
+                !I.relatedTarget ||
+                (I.relatedTarget !== I.delegateTarget &&
+                  !I.delegateTarget.contains(I.relatedTarget))
+              )
+                return B.call(this, I);
+            };
+          d ? (d = V(d)) : (c = V(c));
+        }
+        let [_, m, D] = $(o, c, d),
+          b = K(t),
+          x = b[D] || (b[D] = {}),
+          M = P(x, m, _ ? c : null);
+        if (M) {
+          M.oneOff = M.oneOff && y;
+          return;
+        }
+        let S = v(m, o.replace(s, "")),
+          w = _ ? Q(t, c, d) : Y(t, c);
+        (w.delegationSelector = _ ? c : null),
+          (w.originalHandler = m),
+          (w.oneOff = y),
+          (w.uidEvent = S),
+          (x[S] = w),
+          t.addEventListener(D, w, _);
+      }
+      function f(t, o, c, d, y) {
+        let _ = P(o[c], d, y);
+        !_ ||
+          (t.removeEventListener(c, _, Boolean(y)), delete o[c][_.uidEvent]);
+      }
+      function p(t, o, c, d) {
+        let y = o[c] || {};
+        Object.keys(y).forEach((_) => {
+          if (_.includes(d)) {
+            let m = y[_];
+            f(t, o, c, m.originalHandler, m.delegationSelector);
+          }
+        });
+      }
+      function C(t) {
+        return (t = t.replace(A, "")), E[t] || t;
+      }
+      let N = {
+        on(t, o, c, d) {
+          l(t, o, c, d, !1);
+        },
+        one(t, o, c, d) {
+          l(t, o, c, d, !0);
+        },
+        off(t, o, c, d) {
+          if (typeof o != "string" || !t) return;
+          let [y, _, m] = $(o, c, d),
+            D = m !== o,
+            b = K(t),
+            x = o.startsWith(".");
+          if (typeof _ != "undefined") {
+            if (!b || !b[m]) return;
+            f(t, b, m, _, y ? c : null);
+            return;
+          }
+          x &&
+            Object.keys(b).forEach((S) => {
+              p(t, b, S, o.slice(1));
+            });
+          let M = b[m] || {};
+          Object.keys(M).forEach((S) => {
+            let w = S.replace(a, "");
+            if (!D || o.includes(w)) {
+              let V = M[S];
+              f(t, b, m, V.originalHandler, V.delegationSelector);
+            }
+          });
+        },
+        trigger(t, o, c) {
+          if (typeof o != "string" || !t) return null;
+          let d = e(),
+            y = C(o),
+            _ = o !== y,
+            m = L.has(y),
+            D,
+            b = !0,
+            x = !0,
+            M = !1,
+            S = null;
+          return (
+            _ &&
+              d &&
+              ((D = d.Event(o, c)),
+              d(t).trigger(D),
+              (b = !D.isPropagationStopped()),
+              (x = !D.isImmediatePropagationStopped()),
+              (M = D.isDefaultPrevented())),
+            m
+              ? ((S = document.createEvent("HTMLEvents")),
+                S.initEvent(y, b, !0))
+              : (S = new CustomEvent(o, { bubbles: b, cancelable: !0 })),
+            typeof c != "undefined" &&
+              Object.keys(c).forEach((w) => {
+                Object.defineProperty(S, w, {
+                  get() {
+                    return c[w];
+                  },
+                });
+              }),
+            M && S.preventDefault(),
+            x && t.dispatchEvent(S),
+            S.defaultPrevented && typeof D != "undefined" && D.preventDefault(),
+            S
+          );
+        },
+      };
+      return N;
+    });
+  });
+  var se = z((te, ne) => {
+    (function (e, s) {
+      typeof te == "object" && typeof ne != "undefined"
+        ? (ne.exports = s())
+        : typeof define == "function" && define.amd
+        ? define(s)
+        : ((e = typeof globalThis != "undefined" ? globalThis : e || self),
+          (e.Data = s()));
+    })(te, function () {
+      "use strict";
+      let e = new Map();
+      return {
+        set(A, a, h) {
+          e.has(A) || e.set(A, new Map());
+          let n = e.get(A);
+          if (!n.has(a) && n.size !== 0) {
+            console.error(
+              `Bootstrap doesn't allow more than one instance per element. Bound instance: ${
+                Array.from(n.keys())[0]
+              }.`
+            );
+            return;
+          }
+          n.set(a, h);
+        },
+        get(A, a) {
+          return (e.has(A) && e.get(A).get(a)) || null;
+        },
+        remove(A, a) {
+          if (!e.has(A)) return;
+          let h = e.get(A);
+          h.delete(a), h.size === 0 && e.delete(A);
+        },
+      };
+    });
+  });
+  var oe = z((ie, re) => {
+    (function (e, s) {
+      typeof ie == "object" && typeof re != "undefined"
+        ? (re.exports = s(se(), U()))
+        : typeof define == "function" && define.amd
+        ? define(["./dom/data", "./dom/event-handler"], s)
+        : ((e = typeof globalThis != "undefined" ? globalThis : e || self),
+          (e.Base = s(e.Data, e.EventHandler)));
+    })(ie, function (e, s) {
+      "use strict";
+      let A = (l) =>
+          l && typeof l == "object" && "default" in l ? l : { default: l },
+        a = A(e),
+        h = A(s),
+        n = 1e3,
+        E = "transitionend",
+        g = (l) => {
+          if (!l) return 0;
+          let { transitionDuration: f, transitionDelay: p } =
+              window.getComputedStyle(l),
+            C = Number.parseFloat(f),
+            N = Number.parseFloat(p);
+          return !C && !N
+            ? 0
+            : ((f = f.split(",")[0]),
+              (p = p.split(",")[0]),
+              (Number.parseFloat(f) + Number.parseFloat(p)) * n);
+        },
+        L = (l) => {
+          l.dispatchEvent(new Event(E));
+        },
+        v = (l) =>
+          !l || typeof l != "object"
+            ? !1
+            : (typeof l.jquery != "undefined" && (l = l[0]),
+              typeof l.nodeType != "undefined"),
+        K = (l) =>
+          v(l)
+            ? l.jquery
+              ? l[0]
+              : l
+            : typeof l == "string" && l.length > 0
+            ? document.querySelector(l)
+            : null,
+        Y = (l) => {
+          typeof l == "function" && l();
+        },
+        Q = (l, f, p = !0) => {
+          if (!p) {
+            Y(l);
+            return;
+          }
+          let C = 5,
+            N = g(f) + C,
+            t = !1,
+            o = ({ target: c }) => {
+              c === f && ((t = !0), f.removeEventListener(E, o), Y(l));
+            };
+          f.addEventListener(E, o),
+            setTimeout(() => {
+              t || L(f);
+            }, N);
+        },
+        P = "5.1.3";
+      class $ {
+        constructor(f) {
+          (f = K(f)),
+            !!f &&
+              ((this._element = f),
+              a.default.set(this._element, this.constructor.DATA_KEY, this));
+        }
+        dispose() {
+          a.default.remove(this._element, this.constructor.DATA_KEY),
+            h.default.off(this._element, this.constructor.EVENT_KEY),
+            Object.getOwnPropertyNames(this).forEach((f) => {
+              this[f] = null;
+            });
+        }
+        _queueCallback(f, p, C = !0) {
+          Q(f, p, C);
+        }
+        static getInstance(f) {
+          return a.default.get(K(f), this.DATA_KEY);
+        }
+        static getOrCreateInstance(f, p = {}) {
+          return (
+            this.getInstance(f) || new this(f, typeof p == "object" ? p : null)
+          );
+        }
+        static get VERSION() {
+          return P;
+        }
+        static get NAME() {
+          throw new Error(
+            'You have to implement the static method "NAME", for each component!'
+          );
+        }
+        static get DATA_KEY() {
+          return `bs.${this.NAME}`;
+        }
+        static get EVENT_KEY() {
+          return `.${this.DATA_KEY}`;
+        }
+      }
+      return $;
+    });
+  });
+  var me = z((ae, ue) => {
+    (function (e, s) {
+      typeof ae == "object" && typeof ue != "undefined"
+        ? (ue.exports = s(U(), oe()))
+        : typeof define == "function" && define.amd
+        ? define(["./dom/event-handler", "./base-component"], s)
+        : ((e = typeof globalThis != "undefined" ? globalThis : e || self),
+          (e.Button = s(e.EventHandler, e.Base)));
+    })(ae, function (e, s) {
+      "use strict";
+      let A = (p) =>
+          p && typeof p == "object" && "default" in p ? p : { default: p },
+        a = A(e),
+        h = A(s),
+        n = () => {
+          let { jQuery: p } = window;
+          return p && !document.body.hasAttribute("data-bs-no-jquery")
+            ? p
+            : null;
+        },
+        E = [],
+        g = (p) => {
+          document.readyState === "loading"
+            ? (E.length ||
+                document.addEventListener("DOMContentLoaded", () => {
+                  E.forEach((C) => C());
+                }),
+              E.push(p))
+            : p();
+        },
+        L = (p) => {
+          g(() => {
+            let C = n();
+            if (C) {
+              let N = p.NAME,
+                t = C.fn[N];
+              (C.fn[N] = p.jQueryInterface),
+                (C.fn[N].Constructor = p),
+                (C.fn[N].noConflict = () => ((C.fn[N] = t), p.jQueryInterface));
+            }
+          });
+        },
+        v = "button",
+        Y = ".bs.button",
+        Q = ".data-api",
+        P = "active",
+        $ = '[data-bs-toggle="button"]',
+        l = `click${Y}${Q}`;
+      class f extends h.default {
+        static get NAME() {
+          return v;
+        }
+        toggle() {
+          this._element.setAttribute(
+            "aria-pressed",
+            this._element.classList.toggle(P)
+          );
+        }
+        static jQueryInterface(C) {
+          return this.each(function () {
+            let N = f.getOrCreateInstance(this);
+            C === "toggle" && N[C]();
+          });
+        }
+      }
+      return (
+        a.default.on(document, l, $, (p) => {
+          p.preventDefault();
+          let C = p.target.closest($);
+          f.getOrCreateInstance(C).toggle();
+        }),
+        L(f),
+        f
+      );
+    });
+  });
+  var ye = z((ce, le) => {
+    (function (e, s) {
+      typeof ce == "object" && typeof le != "undefined"
+        ? (le.exports = s())
+        : typeof define == "function" && define.amd
+        ? define(s)
+        : ((e = typeof globalThis != "undefined" ? globalThis : e || self),
+          (e.Manipulator = s()));
+    })(ce, function () {
+      "use strict";
+      function e(a) {
+        return a === "true"
+          ? !0
+          : a === "false"
+          ? !1
+          : a === Number(a).toString()
+          ? Number(a)
+          : a === "" || a === "null"
+          ? null
+          : a;
+      }
+      function s(a) {
+        return a.replace(/[A-Z]/g, (h) => `-${h.toLowerCase()}`);
+      }
+      return {
+        setDataAttribute(a, h, n) {
+          a.setAttribute(`data-bs-${s(h)}`, n);
+        },
+        removeDataAttribute(a, h) {
+          a.removeAttribute(`data-bs-${s(h)}`);
+        },
+        getDataAttributes(a) {
+          if (!a) return {};
+          let h = {};
+          return (
+            Object.keys(a.dataset)
+              .filter((n) => n.startsWith("bs"))
+              .forEach((n) => {
+                let E = n.replace(/^bs/, "");
+                (E = E.charAt(0).toLowerCase() + E.slice(1, E.length)),
+                  (h[E] = e(a.dataset[n]));
+              }),
+            h
+          );
+        },
+        getDataAttribute(a, h) {
+          return e(a.getAttribute(`data-bs-${s(h)}`));
+        },
+        offset(a) {
+          let h = a.getBoundingClientRect();
+          return {
+            top: h.top + window.pageYOffset,
+            left: h.left + window.pageXOffset,
+          };
+        },
+        position(a) {
+          return { top: a.offsetTop, left: a.offsetLeft };
+        },
+      };
+    });
+  });
+  var Ae = z((fe, de) => {
+    (function (e, s) {
+      typeof fe == "object" && typeof de != "undefined"
+        ? (de.exports = s())
+        : typeof define == "function" && define.amd
+        ? define(s)
+        : ((e = typeof globalThis != "undefined" ? globalThis : e || self),
+          (e.SelectorEngine = s()));
+    })(fe, function () {
+      "use strict";
+      let e = (n) =>
+          !n || typeof n != "object"
+            ? !1
+            : (typeof n.jquery != "undefined" && (n = n[0]),
+              typeof n.nodeType != "undefined"),
+        s = (n) =>
+          !e(n) || n.getClientRects().length === 0
+            ? !1
+            : getComputedStyle(n).getPropertyValue("visibility") === "visible",
+        A = (n) =>
+          !n ||
+          n.nodeType !== Node.ELEMENT_NODE ||
+          n.classList.contains("disabled")
+            ? !0
+            : typeof n.disabled != "undefined"
+            ? n.disabled
+            : n.hasAttribute("disabled") &&
+              n.getAttribute("disabled") !== "false",
+        a = 3;
+      return {
+        find(n, E = document.documentElement) {
+          return [].concat(...Element.prototype.querySelectorAll.call(E, n));
+        },
+        findOne(n, E = document.documentElement) {
+          return Element.prototype.querySelector.call(E, n);
+        },
+        children(n, E) {
+          return [].concat(...n.children).filter((g) => g.matches(E));
+        },
+        parents(n, E) {
+          let g = [],
+            L = n.parentNode;
+          for (; L && L.nodeType === Node.ELEMENT_NODE && L.nodeType !== a; )
+            L.matches(E) && g.push(L), (L = L.parentNode);
+          return g;
+        },
+        prev(n, E) {
+          let g = n.previousElementSibling;
+          for (; g; ) {
+            if (g.matches(E)) return [g];
+            g = g.previousElementSibling;
+          }
+          return [];
+        },
+        next(n, E) {
+          let g = n.nextElementSibling;
+          for (; g; ) {
+            if (g.matches(E)) return [g];
+            g = g.nextElementSibling;
+          }
+          return [];
+        },
+        focusableChildren(n) {
+          let E = [
+            "a",
+            "button",
+            "input",
+            "textarea",
+            "select",
+            "details",
+            "[tabindex]",
+            '[contenteditable="true"]',
+          ]
+            .map((g) => `${g}:not([tabindex^="-"])`)
+            .join(", ");
+          return this.find(E, n).filter((g) => !A(g) && s(g));
+        },
+      };
+    });
+  });
+  var Te = z((he, pe) => {
+    (function (e, s) {
+      typeof he == "object" && typeof pe != "undefined"
+        ? (pe.exports = s(se(), U(), ye(), Ae(), oe()))
+        : typeof define == "function" && define.amd
+        ? define(
+            [
+              "./dom/data",
+              "./dom/event-handler",
+              "./dom/manipulator",
+              "./dom/selector-engine",
+              "./base-component",
+            ],
+            s
+          )
+        : ((e = typeof globalThis != "undefined" ? globalThis : e || self),
+          (e.Collapse = s(
+            e.Data,
+            e.EventHandler,
+            e.Manipulator,
+            e.SelectorEngine,
+            e.Base
+          )));
+    })(he, function (e, s, A, a, h) {
+      "use strict";
+      let n = (r) =>
+          r && typeof r == "object" && "default" in r ? r : { default: r },
+        E = n(e),
+        g = n(s),
+        L = n(A),
+        v = n(a),
+        K = n(h),
+        Y = (r) =>
+          r == null
+            ? `${r}`
+            : {}.toString
+                .call(r)
+                .match(/\s([a-z]+)/i)[1]
+                .toLowerCase(),
+        Q = (r) => {
+          let i = r.getAttribute("data-bs-target");
+          if (!i || i === "#") {
+            let u = r.getAttribute("href");
+            if (!u || (!u.includes("#") && !u.startsWith("."))) return null;
+            u.includes("#") &&
+              !u.startsWith("#") &&
+              (u = `#${u.split("#")[1]}`),
+              (i = u && u !== "#" ? u.trim() : null);
+          }
+          return i;
+        },
+        P = (r) => {
+          let i = Q(r);
+          return i && document.querySelector(i) ? i : null;
+        },
+        $ = (r) => {
+          let i = Q(r);
+          return i ? document.querySelector(i) : null;
+        },
+        l = (r) =>
+          !r || typeof r != "object"
+            ? !1
+            : (typeof r.jquery != "undefined" && (r = r[0]),
+              typeof r.nodeType != "undefined"),
+        f = (r) =>
+          l(r)
+            ? r.jquery
+              ? r[0]
+              : r
+            : typeof r == "string" && r.length > 0
+            ? document.querySelector(r)
+            : null,
+        p = (r, i, u) => {
+          Object.keys(u).forEach((T) => {
+            let R = u[T],
+              O = i[T],
+              H = O && l(O) ? "element" : Y(O);
+            if (!new RegExp(R).test(H))
+              throw new TypeError(
+                `${r.toUpperCase()}: Option "${T}" provided type "${H}" but expected type "${R}".`
+              );
+          });
+        },
+        C = (r) => {
+          r.offsetHeight;
+        },
+        N = () => {
+          let { jQuery: r } = window;
+          return r && !document.body.hasAttribute("data-bs-no-jquery")
+            ? r
+            : null;
+        },
+        t = [],
+        o = (r) => {
+          document.readyState === "loading"
+            ? (t.length ||
+                document.addEventListener("DOMContentLoaded", () => {
+                  t.forEach((i) => i());
+                }),
+              t.push(r))
+            : r();
+        },
+        c = (r) => {
+          o(() => {
+            let i = N();
+            if (i) {
+              let u = r.NAME,
+                T = i.fn[u];
+              (i.fn[u] = r.jQueryInterface),
+                (i.fn[u].Constructor = r),
+                (i.fn[u].noConflict = () => ((i.fn[u] = T), r.jQueryInterface));
+            }
+          });
+        },
+        d = "collapse",
+        y = "bs.collapse",
+        _ = `.${y}`,
+        m = ".data-api",
+        D = { toggle: !0, parent: null },
+        b = { toggle: "boolean", parent: "(null|element)" },
+        x = `show${_}`,
+        M = `shown${_}`,
+        S = `hide${_}`,
+        w = `hidden${_}`,
+        V = `click${_}${m}`,
+        B = "show",
+        I = "collapse",
+        W = "collapsing",
+        ge = "collapsed",
+        Ee = `:scope .${I} .${I}`,
+        Ce = "collapse-horizontal",
+        De = "width",
+        Ne = "height",
+        Se = ".collapse.show, .collapse.collapsing",
+        G = '[data-bs-toggle="collapse"]';
+      class j extends K.default {
+        constructor(i, u) {
+          super(i);
+          (this._isTransitioning = !1),
+            (this._config = this._getConfig(u)),
+            (this._triggerArray = []);
+          let T = v.default.find(G);
+          for (let R = 0, O = T.length; R < O; R++) {
+            let H = T[R],
+              k = P(H),
+              F = v.default.find(k).filter((q) => q === this._element);
+            k !== null &&
+              F.length &&
+              ((this._selector = k), this._triggerArray.push(H));
+          }
+          this._initializeChildren(),
+            this._config.parent ||
+              this._addAriaAndCollapsedClass(
+                this._triggerArray,
+                this._isShown()
+              ),
+            this._config.toggle && this.toggle();
+        }
+        static get Default() {
+          return D;
+        }
+        static get NAME() {
+          return d;
+        }
+        toggle() {
+          this._isShown() ? this.hide() : this.show();
+        }
+        show() {
+          if (this._isTransitioning || this._isShown()) return;
+          let i = [],
+            u;
+          if (this._config.parent) {
+            let q = v.default.find(Ee, this._config.parent);
+            i = v.default
+              .find(Se, this._config.parent)
+              .filter((J) => !q.includes(J));
+          }
+          let T = v.default.findOne(this._selector);
+          if (i.length) {
+            let q = i.find((J) => T !== J);
+            if (((u = q ? j.getInstance(q) : null), u && u._isTransitioning))
+              return;
+          }
+          if (g.default.trigger(this._element, x).defaultPrevented) return;
+          i.forEach((q) => {
+            T !== q && j.getOrCreateInstance(q, { toggle: !1 }).hide(),
+              u || E.default.set(q, y, null);
+          });
+          let O = this._getDimension();
+          this._element.classList.remove(I),
+            this._element.classList.add(W),
+            (this._element.style[O] = 0),
+            this._addAriaAndCollapsedClass(this._triggerArray, !0),
+            (this._isTransitioning = !0);
+          let H = () => {
+              (this._isTransitioning = !1),
+                this._element.classList.remove(W),
+                this._element.classList.add(I, B),
+                (this._element.style[O] = ""),
+                g.default.trigger(this._element, M);
+            },
+            F = `scroll${O[0].toUpperCase() + O.slice(1)}`;
+          this._queueCallback(H, this._element, !0),
+            (this._element.style[O] = `${this._element[F]}px`);
+        }
+        hide() {
+          if (
+            this._isTransitioning ||
+            !this._isShown() ||
+            g.default.trigger(this._element, S).defaultPrevented
+          )
+            return;
+          let u = this._getDimension();
+          (this._element.style[u] = `${
+            this._element.getBoundingClientRect()[u]
+          }px`),
+            C(this._element),
+            this._element.classList.add(W),
+            this._element.classList.remove(I, B);
+          let T = this._triggerArray.length;
+          for (let O = 0; O < T; O++) {
+            let H = this._triggerArray[O],
+              k = $(H);
+            k && !this._isShown(k) && this._addAriaAndCollapsedClass([H], !1);
+          }
+          this._isTransitioning = !0;
+          let R = () => {
+            (this._isTransitioning = !1),
+              this._element.classList.remove(W),
+              this._element.classList.add(I),
+              g.default.trigger(this._element, w);
+          };
+          (this._element.style[u] = ""),
+            this._queueCallback(R, this._element, !0);
+        }
+        _isShown(i = this._element) {
+          return i.classList.contains(B);
+        }
+        _getConfig(i) {
+          return (
+            (i = { ...D, ...L.default.getDataAttributes(this._element), ...i }),
+            (i.toggle = Boolean(i.toggle)),
+            (i.parent = f(i.parent)),
+            p(d, i, b),
+            i
+          );
+        }
+        _getDimension() {
+          return this._element.classList.contains(Ce) ? De : Ne;
+        }
+        _initializeChildren() {
+          if (!this._config.parent) return;
+          let i = v.default.find(Ee, this._config.parent);
+          v.default
+            .find(G, this._config.parent)
+            .filter((u) => !i.includes(u))
+            .forEach((u) => {
+              let T = $(u);
+              T && this._addAriaAndCollapsedClass([u], this._isShown(T));
+            });
+        }
+        _addAriaAndCollapsedClass(i, u) {
+          !i.length ||
+            i.forEach((T) => {
+              u ? T.classList.remove(ge) : T.classList.add(ge),
+                T.setAttribute("aria-expanded", u);
+            });
+        }
+        static jQueryInterface(i) {
+          return this.each(function () {
+            let u = {};
+            typeof i == "string" && /show|hide/.test(i) && (u.toggle = !1);
+            let T = j.getOrCreateInstance(this, u);
+            if (typeof i == "string") {
+              if (typeof T[i] == "undefined")
+                throw new TypeError(`No method named "${i}"`);
+              T[i]();
+            }
+          });
+        }
+      }
+      return (
+        g.default.on(document, V, G, function (r) {
+          (r.target.tagName === "A" ||
+            (r.delegateTarget && r.delegateTarget.tagName === "A")) &&
+            r.preventDefault();
+          let i = P(this);
+          v.default.find(i).forEach((T) => {
+            j.getOrCreateInstance(T, { toggle: !1 }).toggle();
+          });
+        }),
+        c(j),
+        j
+      );
+    });
+  });
+  var He = _e(me()),
+    qe = _e(Te());
+})();
 /*!
-  * Bootstrap base-component.js v5.1.3 (https://getbootstrap.com/)
-  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-  */
+ * Bootstrap base-component.js v5.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
 /*!
-  * Bootstrap button.js v5.1.3 (https://getbootstrap.com/)
-  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-  */
+ * Bootstrap button.js v5.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
 /*!
-  * Bootstrap collapse.js v5.1.3 (https://getbootstrap.com/)
-  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-  */
+ * Bootstrap collapse.js v5.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
 /*!
-  * Bootstrap data.js v5.1.3 (https://getbootstrap.com/)
-  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-  */
+ * Bootstrap data.js v5.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
 /*!
-  * Bootstrap event-handler.js v5.1.3 (https://getbootstrap.com/)
-  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-  */
+ * Bootstrap event-handler.js v5.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
 /*!
-  * Bootstrap manipulator.js v5.1.3 (https://getbootstrap.com/)
-  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-  */
+ * Bootstrap manipulator.js v5.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
 /*!
-  * Bootstrap selector-engine.js v5.1.3 (https://getbootstrap.com/)
-  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-  */
+ * Bootstrap selector-engine.js v5.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
