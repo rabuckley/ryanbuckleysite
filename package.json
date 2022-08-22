@@ -14,7 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.4",
-    "cspell": "^6.7.0",
+    "cspell": "^6.8.0",
     "postcss": "^8.4.16",
     "postcss-cli": "^10.0.0",
     "prettier": "2.7.1",
