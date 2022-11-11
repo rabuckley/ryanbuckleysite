@@ -15,7 +15,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.7",
     "cspell": "^6.8.1",
-    "postcss": "^8.4.16",
+    "postcss": "^8.4.19",
     "postcss-cli": "^10.0.0",
     "prettier": "2.7.1",
     "prettier-plugin-go-template": "^0.0.13",
