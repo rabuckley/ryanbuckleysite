@@ -1,12 +1,15 @@
 {{ define "main" }}
-  <section class="py-8">
+  <section class="py-16 max-w-5xl px-2 xl:px-0 mx-auto">
     {{ .Content }}
     <ul>
-      {{ range .Pages }}
+      <!-- Loop through all content pages (!= section) -->
+      {{ range where .Pages "IsSection" false }}
         <li class="border-bottom py-6">
-          <p><a class="link" href="{{ .Permalink }}">{{ .Title }}</a></p>
+		<article>
+          <h2 class="text-2xl font-semibold mb-2"><a class="link" href="{{ .Permalink }}">{{ .Title }}</a></h2>
           <p>{{ .Page.PublishDate.Format "January 2, 2006" }}</p>
           <p>{{ .Page.Description }}</p>
+		</article>
         </li>
       {{ end }}
     </ul>
