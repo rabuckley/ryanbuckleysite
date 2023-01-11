@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.8",
+    "@tailwindcss/typography": "^0.5.9",
     "cspell": "^6.15.0",
     "postcss": "^8.4.19",
     "postcss-cli": "^10.0.0",
