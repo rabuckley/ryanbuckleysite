@@ -1,0 +1,39 @@
+<!doctype html><html lang=en-gb><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Ryan Buckley</title><link rel=stylesheet href="/css/site.min.64f577e370dc790874268d11e01e9f74bb8322dc4c79c9637d7164d8e0e6bbb7.css" integrity="sha256-ZPV343DceQh0Jo0R4B6fdLuDItxMecljfXFk2ODmu7c="></head><body><div><header class="absolute top-0 left-0 w-full"><div class="mx-auto max-w-3xl px-2 xl:px-0"><nav class="flex justify-between py-4"><a class=font-medium href=/>Ryan Buckley</a><ul class="flex mt-auto"><a href=/posts>Posts</a></ul></nav></div></header><article class="max-w-3xl mx-auto prose prose-headings:font-semibold mt-20 mb-12 prose-blockquote:not-italic"><h1 class=mb-0>The masked man misunderstanding</h1><p class=lead>Why the masked man fallacy is not a fallacy.</p><p>Descartes&rsquo; argument for dualism is often boiled down to the following argument</p><pre tabindex=0><code>I can doubt the existence of my body
+I cannot doubt the existence of my self
+---
+My self is not my body
+</code></pre><p>This seems to follow using <a href=https://plato.stanford.edu/entries/identity-indiscernible/>Leibniz&rsquo;s Law</a>:</p><blockquote><p>if, for every property <em>F</em>, object <em>x</em> has <em>F</em> if and only if object <em>y</em> has <em>F</em>, then <em>x</em> is identical to <em>y</em>.</p></blockquote><p>or in other words:</p><blockquote><p>if x and y are distinct then there is at least one property that x has and y does not, or vice versa</p></blockquote><p>This means the following argument is valid:</p><pre tabindex=0><code>x has F
+y does not have F
+---
+x is not y
+</code></pre><p>And Descartes&rsquo; argument also fits this form:</p><pre tabindex=0><code>My body has the property that I can doubt its existence
+My self does not have the property that I can doubt its existence
+---
+My body is not my self
+</code></pre><p>Getting to the first premise is a straight-forward substitution of &ldquo;my body&rdquo; for <code>x</code> and &ldquo;that I can doubt its existence&rdquo; for <code>F</code>, which is a property of <code>x</code>.</p><p>Getting to the second premise takes a bit more work. The general form requires that <code>y</code> (in this case, &ldquo;my self&rdquo;) does not have property <code>F</code>. The original argument instead contains a <em>second property</em> (<code>F1</code>): &ldquo;that I cannot doubt its existence&rdquo;. As long as you accept dubitability and non-dubitability are negations then <code>F1</code> is the same as <code>not F</code>, so if <code>y</code> has <code>F1</code> then <code>y</code> must also have <code>not F</code> by definition.</p><h2 id=the-masked-man-fallacy>The masked man fallacy</h2><p>However, the following argument also has the same form:</p><pre tabindex=0><code>I know who my father is
+I do not know who the man in the mask is
+---
+My father is not the man in the mask
+</code></pre><p>You do not know who the man in the mask is, so it seems fallacious to conclude that it cannot possibly be my father. This is the masked man fallacy.</p><p>In the general form:</p><pre tabindex=0><code>My father has the property of being known to me
+The man in the mask does not have the property of being known to me
+---
+My father is not the man in the mask
+</code></pre><p>In this form, it still looks wrong to conclude that the man in the mask is not my father. The general form, however, looks valid.</p><p>The problem arises from the definition of &ldquo;known&rdquo;. I &ldquo;know&rdquo; my father in the sense that I have a relationship with him. My knowledge of the man in the mask, however, is relating to my possession of <em>information</em> about him.</p><p>Using the informational definition of &ldquo;known&rdquo; for both, knowing who my father is, and not knowing who the man in the mask is <em>are exclusive</em>. In other words, if I am unsure whether the man in the mask is my father, then <em>I do not know who my father is</em>, which contradicts the first premise.</p><p>Using the definition of &ldquo;known&rdquo; relating to relationship, the two premises are, again, exclusionary. I know my father, as in I have a father-son relationship with him. I do not know the man, as in I don&rsquo;t have a relationship with him. It does not matter who the man is, that he is wearing a mask, or anything else other than that I do not know him. Again, if my father were also the man in the mask then the premises would be contradictory.</p><p>To be clear, it absolutely <em>is</em> fallacious to argue that you know your father socially, and don&rsquo;t know who the man in the mask is epistemically (or vice versa), because these are two different uses of the word are not exclusive.</p><h3 id=a-poisonous-coffee>A poisonous coffee</h3><p>Another example is:</p><pre tabindex=0><code>I would like to drink this coffee
+I would not like to drink poisoned coffee
+---
+This coffee is not poisoned coffee
+</code></pre><p>Again, you may think that you cannot conclude that the coffee is not poisoned from a statement of preference. But you can.</p><p>The problem here, arises from mistaking the second premise to mean &ldquo;I would not like to drink coffee that <em>I know</em> to be poisoned&rdquo;. If that were the case, then the argument would absolutely be fallacious.</p><p>If this is how you read it then you can construct an argument equivalent to the first, adding knowledge as a condition:</p><pre tabindex=0><code>I would not like to drink coffee if I know if it is poisoned and it is poisoned
+I always know if coffee is poisoned
+I would like to drink this coffee
+---
+This coffee is not poisoned
+</code></pre><p>In a more general form, where</p><ul><li><code>x</code> is &ldquo;I would like to drink coffee&rdquo;</li><li><code>y</code> is &ldquo;I know if it is poisoned&rdquo;</li><li><code>z</code> is &ldquo;it is poisoned&rdquo;</li></ul><pre tabindex=0><code>not x if y and z
+y
+x
+---
+not z
+</code></pre><p>The condition <code>y</code>, &ldquo;I know if it is poisoned&rdquo;, in premise one is <em>always</em> satisfied by the second premise. Because the condition is always satisfied, the structure of the argument is the same <em>without the condition</em>, so the following (which is our original) argument is just as valid:</p><pre tabindex=0><code>not x if y
+x
+---
+not y
+</code></pre><p>The masked man misunderstanding arises when the terms used are not understood <em>consistently</em> throughout the premises. Knowing my father socially does not exclude him from being an epistemically unknown masked man, but knowing both epistemically excludes them from being the same person.</p></article></div></body></html>
