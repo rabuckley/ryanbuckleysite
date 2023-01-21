@@ -1,6 +1,7 @@
 {{ define "main" }}
-  <article class="max-w-5xl mx-auto prose prose-headings:font-semibold mt-20">
-    <h1>{{ .Title }}</h1>
+  <article class="max-w-3xl mx-auto prose prose-headings:font-semibold mt-20 mb-12 prose-blockquote:not-italic">
+    <h1 class="mb-0">{{ .Title }}</h1>
+    <p class="lead">{{ .Params.description }}</p>
     {{ .Content }}
   </article>
 {{ end }}

@@ -1,15 +1,20 @@
 {{ define "main" }}
-  <section class="py-16 max-w-5xl px-2 xl:px-0 mx-auto">
+  <section class="py-16 max-w-3xl px-2 xl:px-0 mx-auto">
+    <h1 class="font-semibold text-xl mb-3">{{ .Title }}</h1>
     {{ .Content }}
-    <ul>
-      <!-- Loop through all content pages (!= section) -->
-      {{ range where .Pages "IsSection" false }}
-        <li class="border-bottom py-6">
-		<article>
-          <h2 class="text-2xl font-semibold mb-2"><a class="link" href="{{ .Permalink }}">{{ .Title }}</a></h2>
-          <p>{{ .Page.PublishDate.Format "January 2, 2006" }}</p>
-          <p>{{ .Page.Description }}</p>
-		</article>
+    <ul reversed>
+      {{ range .Pages }}
+        <li class="flex mb-2">
+          <a class="link" href="{{ .Permalink }}" title="{{ .Title }}"
+            >{{ .Title }}</a
+          >
+          <hr
+            class="my-0 pt-4 flex flex-grow mx-2 h-[1px] border-0 border-b-[1px] border-dotted border-zinc-400 flex-grow-1 flex-shrink-0 basis-4" />
+          <time
+            class="tabular-nums font-mono whitespace-nowrap"
+            datetime="{{ dateFormat "2006-01-02" .Date }}"
+            >{{ dateFormat "02/01/06" .Date }}</time
+          >
         </li>
       {{ end }}
     </ul>

@@ -1,13 +1,5 @@
 {{ define "main" }}
-<main class="pt-16 mx-auto max-w-5xl">
-    {{.Content}}
-    <ul>
-    <!-- Ranges through content/posts/*.md -->
-    {{ range where .Site.Pages "IsSingle" true }
-        <li>
-            <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
-        </li>
-    {{ end }}
-    </ul>
-</main>
+  <main class="pt-16 mx-auto max-w-3xl">
+    <p class="font-medium text-lg">Hi there! 👋</p>
+  </main>
 {{ end }}
