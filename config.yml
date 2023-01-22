@@ -1,6 +1,6 @@
 baseURL: "https://www.ryanbuckley.uk"
 languageCode: "en-GB"
-title: "Ryan Buckley"
+title: "Ryan Buckley's Website"
 markup:
   highlight:
     anchorLineNos: false

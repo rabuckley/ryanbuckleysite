@@ -1,3 +1,21 @@
 <!-- Meta -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}</title>
+<link rel="canonical" href="{{ .Permalink }}" />
+<meta name="description" content="{{ if .Params.Description }}{{ .Params.Description }}{{ else if .Site.Params.Description }}{{ .Site.Params.Description }}{{ else }}Ryan Buckley's Website{{ end }}" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
+<meta property="og:type" content="{{ if eq .Params.Layout "single" }}article{{ else }}website{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:description" content="{{ if .Params.Description }}{{ .Params.Description }}{{ else if .Site.Params.Description }}{{ .Site.Params.Description }}{{ else }}Ryan Buckley's Website{{ end }}" />
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+
+<!-- Citation -->
+<meta name="citation_title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
+<meta name="citation_author" content="{{ if .Params.Author }}{{ .Params.Author }}{{ else if .Site.Params.Author }}{{ .Site.Params.Author }}{{ else }}Ryan Buckley{{ end }}" />
+<meta name="citation_publication_date" content="{{ .Date.Format "2006-01-02" }}" />
+<meta name="citation_journal_title" content="{{ .Site.Title }}" />
+
