@@ -6,7 +6,7 @@ layout: single
 draft: true
 ---
 
-Descartes' argument for dualism is often boiled down to the following argument
+Descartes' argument for dualism is [often boiled down to](https://www.jstor.org/stable/2253091) the following argument
 
 ```
 I can doubt the existence of my body
