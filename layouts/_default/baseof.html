@@ -7,9 +7,9 @@
     {{ partial "head/stylesheets.html" . }}
   </head>
 
-  <body>
-    <div>
-      {{ partial "navbar.html" . }}
+  <body class="bg-stone-50 dark:bg-neutral-900 dark:text-zinc-50 grid grid-cols-[1fr_minmax(0,var(--container-3xl))_1fr] gap-4">
+    {{ partial "navbar.html" . }}
+    <div class="my-4 col-start-2 col-span-1">
       {{ block "main" . }}{{ end }}
     </div>
   </body>

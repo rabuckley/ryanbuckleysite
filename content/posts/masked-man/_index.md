@@ -3,7 +3,7 @@ title: "The masked man misunderstanding"
 description: "Why the masked man fallacy is not a fallacy."
 date: 2023-01-20T12:00:00+00:00
 layout: single
-draft: true
+draft: false
 ---
 
 Descartes' argument for dualism is [often boiled down to](https://www.jstor.org/stable/2253091) the following argument

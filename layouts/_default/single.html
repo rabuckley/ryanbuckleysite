@@ -1,8 +1,9 @@
 {{ define "main" }}
-  <article
-    class="max-w-3xl px-2 xl:px-0 mx-auto prose prose-headings:font-semibold mt-20 mb-12 prose-blockquote:not-italic">
-    <h1 class="mb-0">{{ .Title }}</h1>
-    <p class="lead">{{ .Params.description }}</p>
-    {{ .Content }}
-  </article>
+<article
+  class="prose blockquote:not-italic prose-neutral md:prose-lg prose-pre:bg-zinc-100 prose-pre:text-neutral-800 dark:prose-pre:text-neutral-300 dark:prose-pre:bg-neutral-800 dark:prose-invert prose-code:font-medium prose-code:font-mono mt-20 mb-12 max-w-2xl font-serif"
+>
+  <h1>{{ .Title }}</h1>
+  <p class="lead">{{ .Params.description }}</p>
+  {{ .Content }}
+</article>
 {{ end }}
