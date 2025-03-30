@@ -4,16 +4,14 @@
     {{ .Content }}
     <ul reversed>
       {{ range .Pages }}
-        <li class="flex mb-2">
+        <li class="flex mb-2 justify-between gap-8">
           <a class="link" href="{{ .Permalink }}" title="{{ .Title }}"
             >{{ .Title }}</a
           >
-          <hr
-            class="my-0 pt-4 flex flex-grow mx-2 h-[1px] border-0 border-b-[1px] border-dotted border-zinc-400 flex-grow-1 flex-shrink-0 basis-4" />
           <time
-            class="tabular-nums font-mono whitespace-nowrap"
-            datetime="{{ dateFormat "2006-01-02" .Date }}"
-            >{{ dateFormat "02/01/06" .Date }}</time
+            class="tabular-nums whitespace-nowrap"
+            datetime="{{ dateFormat "2023-10-15T13:18:50Z" .Date }}"
+            >{{ dateFormat "Jan 02, 2006" .Date }}</time
           >
         </li>
       {{ end }}
