@@ -1,13 +1,11 @@
 {{ define "main" }}
-  <section class="py-16 max-w-3xl px-2 xl:px-0 mx-auto">
+  <section>
     <h1 class="font-semibold text-xl mb-3">{{ .Title }}</h1>
     {{ .Content }}
     <ul reversed>
       {{ range .Pages }}
         <li class="flex mb-2 justify-between gap-8">
-          <a class="link" href="{{ .Permalink }}" title="{{ .Title }}"
-            >{{ .Title }}</a
-          >
+          <a class="link" href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
           <time
             class="tabular-nums whitespace-nowrap"
             datetime="{{ dateFormat "2023-10-15T13:18:50Z" .Date }}"

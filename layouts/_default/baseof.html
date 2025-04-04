@@ -7,9 +7,9 @@
   </head>
 
   <body
-    class="grid grid-cols-[1fr_minmax(0,var(--container-3xl))_1fr] gap-4 bg-oat-50 dark:bg-neutral-900 dark:text-zinc-50"
+    class="bg-oat-50 grid grid-cols-[1fr_minmax(0,var(--container-3xl))_1fr] gap-4 dark:bg-neutral-900 dark:text-zinc-50"
   >
     {{ partial "navbar.html" . }}
-    <div class="col-span-1 col-start-2 my-4">{{ block "main" . }}{{ end }}</div>
+    <main class="col-span-1 col-start-2">{{ block "main" . }}{{ end }}</main>
   </body>
 </html>
