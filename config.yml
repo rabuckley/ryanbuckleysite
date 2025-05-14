@@ -14,5 +14,5 @@ markup:
     lineNumbersInTable: true
     noClasses: true
     noHl: false
-    style: onedark
+    style: catppuccin-macchiato
     tabWidth: 4
