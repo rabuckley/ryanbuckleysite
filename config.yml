@@ -16,3 +16,6 @@ markup:
     noHl: false
     style: catppuccin-macchiato
     tabWidth: 4
+services:
+  googleAnalytics:
+    id: "G-V1G54KEXZS"

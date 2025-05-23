@@ -2,6 +2,7 @@
 <html lang="en-gb">
   <head>
     {{ partial "head/metadata.html" . }} {{ block "meta" . }}{{ end }}
+    {{ template "_internal/google_analytics.html" . }}
     <title>{{ .Site.Title }}</title>
     {{ partial "head/stylesheets.html" . }}
   </head>
