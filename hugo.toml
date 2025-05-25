@@ -1,0 +1,9 @@
+baseURL = "https://www.ryanbuckley.uk"
+languageCode = "en-GB"
+title = "Ryan Buckley's Website"
+
+[markup.highlight]
+style = "catppuccin-macchiato"
+
+[services.googleAnalytics]
+id = "G-V1G54KEXZS"
