@@ -2,7 +2,6 @@
 title: "The masked man misunderstanding"
 description: "Why the masked man fallacy is not a fallacy."
 date: 2023-01-20T12:00:00+00:00
-layout: single
 draft: true
 ---
 
