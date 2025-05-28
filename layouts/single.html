@@ -3,7 +3,7 @@
   class="prose blockquote:not-italic prose-headings:font-semibold prose-headings:font-sans prose-lead:text-neutral-900 dark:prose-lead:text-neutral-300 prose-neutral md:prose-lg prose-pre:bg-oat-200 prose-pre:text-neutral-800 dark:prose-pre:text-neutral-300 dark:prose-pre:bg-neutral-800 dark:prose-invert prose-code:font-medium prose-code:font-mono mb-12 font-serif"
 >
   <h1>{{ .Title }}</h1>
-  <p class="lead">{{ .Params.description }}</p>
+  <time class="text-neutral-600 dark:text-neutral-400" datetime="{{ dateFormat "2023-10-15T13:18:50Z" .Date }}">{{ dateFormat "Jan 2006" .Date }}</time>
   {{ .Content }}
 </article>
 {{ end }}
