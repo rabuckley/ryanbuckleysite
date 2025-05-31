@@ -1,3 +1,42 @@
 {{ define "main" }}
-<p class="text-lg font-medium">Hi there! 👋</p>
+<div class="site-prose">
+<p>I&apos;m currently building technology providing personalised specialist advice and progress tracking to help young people with learning difficulties like Down Syndrome.</p>
+<p>Previously,</p>
+<ol class="list-disc">
+  <li><span class="font-semibold">2021-2024</span> - Politics, Philosophy and Economics at Lancaster University.</li>
+</ol>
+</div>
+<aside class="mt-12 mb-8">
+  <ul class="flex flex-wrap gap-4">
+    <li>
+      <a href="https://github.com/rabuckley" target="_blank">
+        {{ with resources.Get "icons/github.svg" }}
+          <img src="{{ .RelPermalink }}" width="20" height="20">
+        {{ end }}
+      </a>
+    </li>
+
+    <li>
+      <a href="https://www.linkedin.com/in/ryanabuckley" target="_blank">
+        {{ with resources.Get "icons/linkedin.svg" }}
+          <img src="{{ .RelPermalink }}" width="20" height="20">
+        {{ end }}
+      </a>
+    </li>
+    <li>
+      <a href="https://x.com/RyanBuck1ey" target="_blank">
+        {{ with resources.Get "icons/twitter-x.svg" }}
+          <img src="{{ .RelPermalink }}" width="20" height="20">
+        {{ end }}
+      </a>
+    </li>
+    <li>
+      <a href="https://bsky.app/profile/ryanbuckley.uk" target="_blank">
+        {{ with resources.Get "icons/bluesky.svg" }}
+          <img src="{{ .RelPermalink }}" width="20" height="20">
+        {{ end }}
+      </a>
+    </li>
+  </ul>
+</aside>
 {{ end }}
