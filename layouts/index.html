@@ -11,7 +11,7 @@
     <li>
       <a href="https://github.com/rabuckley" target="_blank">
         {{ with resources.Get "icons/github.svg" }}
-          <img src="{{ .RelPermalink }}" width="20" height="20">
+          {{ .Content | safeHTML }}
         {{ end }}
       </a>
     </li>
@@ -19,21 +19,21 @@
     <li>
       <a href="https://www.linkedin.com/in/ryanabuckley" target="_blank">
         {{ with resources.Get "icons/linkedin.svg" }}
-          <img src="{{ .RelPermalink }}" width="20" height="20">
+          {{ .Content | safeHTML }}
         {{ end }}
       </a>
     </li>
     <li>
       <a href="https://x.com/RyanBuck1ey" target="_blank">
         {{ with resources.Get "icons/twitter-x.svg" }}
-          <img src="{{ .RelPermalink }}" width="20" height="20">
+          {{ .Content | safeHTML }}
         {{ end }}
       </a>
     </li>
     <li>
       <a href="https://bsky.app/profile/ryanbuckley.uk" target="_blank">
         {{ with resources.Get "icons/bluesky.svg" }}
-          <img src="{{ .RelPermalink }}" width="20" height="20">
+          {{ .Content | safeHTML }}
         {{ end }}
       </a>
     </li>
